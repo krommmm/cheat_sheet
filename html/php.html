@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>PHP cheat sheet</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/prism.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Mate+SC&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</head>
+
+<body>
+	<h1>PHP cheat sheet</h1>
+
+	<!-- MVC -->
+	<div class="titres">
+		<h2>MVC:</h2>
+		<!-- ... -->
+		<p class="cliquable">archi:</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>archi:</h2>
+
+				<img src="../images/php/mvc/archi.PNG" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">.htaccess</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>.htaccess</h2>
+				<h3>C'est un fichier qui réécrit l'url</h3>
+				<img src="../images/php/mvc/htaccess.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">index.php</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>index.php</h2>
+				<h3>C'est un router pour les controllers</h3>
+				<img src="../images/php/mvc/index.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">controller</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>controller</h2>
+				<p>
+					C'est un fichier index.php qui fait la liaison entre les
+					vues et les models
+				</p>
+				<img src="../images/php/mvc/controller.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">model</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>model</h2>
+				<h3>Ensemble des fonctions (connexion, crud etc...)</h3>
+				<img src="../images/php/mvc/model_connexion.png" />
+				<img src="../images/php/mvc/model_avis.png" />
+				<img src="../images/php/mvc/model_users.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">view</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>view</h2>
+				<h3>
+					Ce sont les fichiers php qui affiche le html et qui
+					utilise le strict minimum en php (variables, boucles)
+				</h3>
+				<img src="../images/php/mvc/view_accueil.png" />
+				<img src="../images/php/mvc/view_avis.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">public</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>public</h2>
+				<h3>Contient dossier assets et tous ce qui est publique</h3>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">vendor</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>vendor</h2>
+				<h3>
+					Contient les fournitures: le js, les bibliothèques ,
+					etc...
+				</h3>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">templates</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>templates</h2>
+				<h3>
+					Au lieu de répéter tout le code html à chaque fois, on
+					peut utliser des templates(on peut aussi juste utiliser
+					des requires): ex-> gestion des erreurs
+				</h3>
+				<h3>on créer une variable error et on importe la view</h3>
+				<img src="../images/php/mvc/index.png" />
+				<h3>
+					On créer une variable content qui contient du html,
+					grâce à ob
+				</h3>
+				<img src="../images/php/mvc/view_error.png" />
+				<h3>
+					On créer un fichier base.php avec une var qui prendra ce
+					qu'on lui mettera
+				</h3>
+				<img src="../images/php/mvc/base.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!--COMPOSER-->
+	<div class="titres">
+		<h2>COMPOSER :</h2>
+		<!-- ... -->
+		<p class="cliquable">jwt</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>jwt</h2>
+				<img src="../images/php/php_jwt.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">uuid</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>uuid</h2>
+				<img src="../images/php/php_uuid.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">dotenv (key)</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>dotenv</h2>
+				<img src="../images/php/php_dotenv.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!--API-->
+	<div class="titres">
+		<h2>API REST :</h2>
+		<!-- ... -->
+		<p class="cliquable">htacess</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>htacess 1</h2>
+				<img src="../images/php/0_htaccess.png" />
+				<h2>htacess commented</h2>
+				<img src="../images/php/01_htacess_comments.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">index (router) [allowsOrigins, header, transformation url para]</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>index 1</h2>
+				<img src="../images/php/1_1_index.png" />
+				<h2>index 2</h2>
+				<img src="../images/php/1_router(index).png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Gestion des erreurs</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>gestion des erreurs 1</h2>
+				<img src="../images/php/php_errors.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">PDO</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>PDO</h2>
+				<img src="../images/php/02_pdo.PNG" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">inscription & login</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>inscription & login</h2>
+				<img src="../images/php/2_api_ctrl_signup&login.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">token reception</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>token reception</h2>
+				<img src="../images/php/3_token_reception.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">token périmé ou malformé</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>token périmé ou malformé</h2>
+				<img src="../images/php/php_token_périmé.PNG" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">code & json</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>code & json</h2>
+				<img src="../images/php/4_api_renvoie_json.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">codes</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>codes</h2>
+				<img src="../images/php/5_codes.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Récup body</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Récup body</h2>
+				<img src="../images/php/6_file_get_contents.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">files</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>files</h2>
+				<img src="../images/php/7_FILES.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">tab</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>tab</h2>
+				<img src="../images/php/8_tab.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">formData</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>formData</h2>
+				<img src="../images/php/9_formData.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">put files</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>put files</h2>
+				<img src="../images/php/10_put_files_formdata.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">ajout facultatif</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>ajout facultatif</h2>
+				<img src="../images/php/11_ajout_facultatif.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">ajout facultatif optimisé</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>ajout facultatif optimisé</h2>
+				<img src="../images/php/php_ajout_facultatif_optimisé.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">suppression optimisé</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>suppression optimisé</h2>
+				<img src="../images/php/php_suppression_optimisé.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">save files server</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>save files server</h2>
+				<img src="../images/php/12_saveImgInServer.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">delete img</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>delete img</h2>
+				<img src="../images/php/13_delete_img_while_updade.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">dotenv</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>dotenv</h2>
+				<img src="../images/php/14_dotenv.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">uuid</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>uuid</h2>
+				<img src="../images/php/15_uuid.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">requêtes (get, post, put, delete)</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>bindParam</h2>
+				<img src="../images/php/requetes.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">requêtes pagination</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>requêtes pagination</h2>
+				<img src="../images/php/request_pagination.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+
+
+
+	<!-- API REST POO -->
+	<div class="titres">
+		<h2>API REST POO:</h2>
+
+		<!-- ... -->
+		<p class="cliquable">Architecture</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Architecture:</h2>
+				<img src="../images/php/poo_apiRest/architecture.PNG" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Database</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Database:</h2>
+				<img src="../images/php/poo_apiRest/database.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Article</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Article:</h2>
+				<img src="../images/php/poo_apiRest/article.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Controller</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Controller:</h2>
+				<img src="../images/php/poo_apiRest/controller.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		 		 	 <!-- ... -->
+		<p class="cliquable">index</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>index:</h2>
+				<img src="../images/php/poo_apiRest/index.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+	</div>
+
+
+
+
+	<!--Sessions-->
+	<div class="titres">
+		<h2>Connexion sécurisé av session:</h2>
+		<!-- ... -->
+		<p class="cliquable">creation user</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>creation user</h2>
+				<ul>
+					<li>Crééer bdd</li>
+					<li>crééer table (4)</li>
+					<li>uuid text</li>
+					<li>name varchar(50)</li>
+					<li>email varchar(50)</li>
+					<li>password text</li>
+				</ul>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">utilisation de uuid</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>utilisation de uuid</h2>
+				<ul>
+					<li>dll php dans c:\php > php --version</li>
+					<li>
+						dll composer (qui est le gestionnaire de paquet de
+						php [comme npm pour nodejs]) > composer --version
+					</li>
+					<li>redémarer vsc</li>
+					<li>terminal > composer</li>
+					<li>
+						installer uuid > terminal > composer require
+						ramsey/uuid > va crééer des composants.json et un
+						dossier vendor pour utiliser uuid
+					</li>
+					<li>dans le fichier où l'utiliser:</li>
+					<p>
+						require_once 'vendor/autoload.php';<br /><br />
+
+						use Ramsey\Uuid\Uuid;<br />
+
+						$uuid = Uuid::uuid4();<br />
+						$uuidString = $uuid->toString();<br />
+					</p>
+					<p>
+						Et dans l'array renseigner l'uuidString au lieu de
+						l'id
+					</p>
+				</ul>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Inscription</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Inscription</h2>
+				<img src="../images/php/inscription.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Connexion</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Connexion</h2>
+				<img src="../images/php/connexion.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Welcome</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Welcome</h2>
+				<img src="../images/php/welcome.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Logout</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Logout</h2>
+				<img src="../images/php/deconnexion.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!--Trucs de base-->
+	<div class="titres">
+		<h2>mail :</h2>
+		<!-- ... -->
+		<p class="cliquable">mail de base</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>mail de base</h2>
+				<img src="../images/php/php_email.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">mail avec inputs</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>mail avec inputs</h2>
+				<img src="../images/php/php_email_input.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!--Trucs de base-->
+	<div class="titres">
+		<h2>Trucs de base :</h2>
+		<!-- ... -->
+		<p class="cliquable">requêtes</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>bindParam</h2>
+				<img src="../images/php/requetes.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">requête complete</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>bindParam</h2>
+				<img src="../images/php/req_1.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Ajout facultatif</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>bindParam</h2>
+				<img src="../images/php/ajout_facultatif.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">bindParam</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>bindParam</h2>
+				<p>Au lieu de execute(array("uuid"=>$uuid))</p>
+				<p>On peut bind les paramètres pour les sécuriser</p>
+				<p>$stmt->bindParam(':nom_var',$var, PDO::PARAM_STR);</p>
+				<p>$stmt->bindParam(':price',$monPrice, PDO::PARAM_INT);</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Renvoie JSON</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>http_response_code(200); // ne pas mettre 500</p>
+				<p>echo json_encode($data, JSON_UNESCAPED_UNICODE);</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">fetch une data</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>$stmt->execute();</p>
+				<p>
+					$data = $stmt->fetch(PDO::FETCH_ASSOC); // pour une
+					colonne
+				</p>
+				<p>
+					$data = $stmt->fetchAll(PDO::FETCH_ASSOC); // pour
+					toutes les colonnes qui corespondent à la req
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">CORS</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>CORS</h2>
+				<img src="../images/php/cors.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">dotenv</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>dotenv</h2>
+				<img src="../images/php/dotenv.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">jwt1</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>jwt part1</h2>
+				<img src="../images/php/jwt1.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">jwt2</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>jwt2</h2>
+				<img src="../images/php/jwt2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">error</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>error</h2>
+				<img src="../images/php/error.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">short open tags</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>short open tags</h2>
+				<p>
+					Raccourcie permetant de ne pas écrire: &lt;?php echo
+					$utilisateur['prenom'] ?&gt;
+				</p>
+				<p>
+					&lt;p&gt;&lt;?= $utilisateur['prenom'] ?&gt;&lt;/p&gt;
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">header()</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>header()</h2>
+				<img src="../images/php/php_header.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">include()</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>include()</h2>
+				<img src="../images/php/include.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">require() & require_once()</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>require() & require_once()</h2>
+				<p>Comme include() -> importe un fichier</p>
+				<p>
+					require() provoque une erreur fatal qui arrête le script
+					à la différence de include() Si le fichier ne peut pas
+					être trouvé
+				</p>
+				<p>include() affiche juste une erreur</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Concaténation</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Concaténation</h2>
+				<img src="../images/php/concatenation.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">count</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>count</h2>
+				<img src="../images/php/count.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!-- boucles -->
+	<div class="titres">
+		<h2>boucles :</h2>
+		<!-- ... -->
+		<p class="cliquable">Ternaire</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Ternaire</h2>
+				<img src="../images/php/ternaire.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">for</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>for</h2>
+				<img src="../images/php/for.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">switch</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>switch</h2>
+				<img src="../images/php/switch.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">function</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>function</h2>
+				<img src="../images/php/function.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">forEach()</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>forEach()</h2>
+				<img src="../images/php/forEach.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">while</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>while</h2>
+				<img src="../images/php/while.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!--Tableaux-->
+	<div class="titres">
+		<h2>tableaux :</h2>
+		<!-- ... -->
+		<p class="cliquable">Tableau</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Tableau</h2>
+				<img src="../images/php/tab.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">Tableau associatif</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Tableau associatif</h2>
+				<img src="../images/php/tabAsso.png" />
+			</div>
+		</div>
+	</div>
+	<!--Cookies-->
+	<div class="titres">
+		<h2>Cookies :</h2>
+		<!-- ... -->
+		<p class="cliquable">Cookies</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>cookies</h2>
+				<img src="../images/php/cookies.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!--formulaires-->
+	<div class="titres">
+		<h2>formulaire :</h2>
+		<!-- ... -->
+		<p class="cliquable">Afficher un formulaire</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Afficher un formulaire</h2>
+				<img src="../images/php/displayForm.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Récupération data</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Récupération data</h2>
+				<img src="../images/php/recupData.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!--crud-->
+	<div class="titres">
+		<h2>CRUD:</h2>
+		<!-- ... -->
+		<p class="cliquable">matériel</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>matériel</h2>
+				<p>wamp64</p>
+				<p>URL: localhost ou 127.0.0.1</p>
+				<p>APP GESTION BDD : localhost/phpmyadmin</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">phpmyadmin</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>phpmyadmin</h2>
+				<p>url : localhost/phpmyadmin</p>
+				<p>user : root</p>
+				<p>mdp :</p>
+				<p>path : c://wamp64/www/</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">declaration minimum d'un fichier php</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>declaration minimum d'un fichier php</h2>
+				<p>
+					<br />
+					&lt;body&gt;<br />
+					&lt;?php<br />
+					echo "je suis un texte en php";<br />
+					?&gt;<br />
+					&lt;/body&gt;<br />
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Création bdd</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Création bdd</h2>
+				<p>phpmyadmin</p>
+				<p>type:innoDB</p>
+				<p>interclassment : utf8_general_ci</p>
+				<p>myISAM</p>
+				<p>renseigner nom BDD</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Création table</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Création table (ex: pour un film)</h2>
+				<p>
+					toujours mettre une id int autoIncrement (A_i
+					(autoIncrément) : cocher pour l'id)
+				</p>
+				<p>nom : titre</p>
+				<p>type : varchar</p>
+				<p>taille : 255 (max)</p>
+				<p>
+					interclassment : utf_general_ci (insenssible à la case)
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">CRUD lecture + ajout</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>CRUD lecture + ajout</h2>
+				<img src="../images/php/crud_index_lecture_ajout.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">CRUD Suppression</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>CRUD Suppression</h2>
+				<img src="../images/php/crudSuppression.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">CRUD modification 1</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>CRUD modification 1</h2>
+				<img src="../images/php/crudmodification1.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">CRUD modification 2</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>CRUD modification 2</h2>
+				<img src="../images/php/crudmodification2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Explication</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Explication</h2>
+				<p>ENVOYER DATA DANS URL : method="get"</p>
+				<p>
+					ENVOYER DATA CACHE DANS POST : <br />
+					&nbsp;&lt;?php<br />
+					&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if
+					(isset($_GET["modifier"]) && !empty($_GET["modifier"]))
+					{<br />
+					&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;$id =
+					$_GET["modifier"];<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo '<input type="hidden" name="id" value="' . $id . '" />';<br />
+					&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;}<br />
+					&nbsp;&nbsp;&nbsp;?&gt;<br />
+				</p>
+				<p>
+					WINDOW.LOCATION.HREF="..." EN PHP : header('location:
+					index.php');
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<!--
+		<p class="cliquable">Declaration 2 ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+				</p>
+			</div>
+		</div>
+
+		<  : &lt;
+		>  : &gt;
+	-->
+</body>
+
+<script src="../js/index.js"></script>
+<script src="../js/prism.js"></script>
+
+</html>
+<!--    <code class="language-javascript"></code><br>  -->

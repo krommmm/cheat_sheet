@@ -1,0 +1,4554 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Js cheat sheet</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/prism.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Mate+SC&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+	<div id="start"></div>
+	<a href="#start">
+		<div class="ascensseur"></div>
+	</a>
+	<h1>JS Cheat sheet (Qu'est-ce que c'est, à quoi ça sert concrètement, qu'est ce qui le distingue de ? )</h1>
+	<div class="titres">
+		<div class="sommaire">
+			<a href="#POO">
+				<div class="index">POO</div>
+			</a>
+			<a href="#pf">
+				<div class="index">Programmation fonctionnelle</div>
+			</a>
+			<a href="#crud">
+				<div class="index">Exercices</div>
+			</a>
+			<a href="#ecma">
+				<div class="index">EcmaScript général</div>
+			</a>
+			<a href="#string">
+				<div class="index">String</div>
+			</a>
+			<a href="#array">
+				<div class="index">Array</div>
+			</a>
+			<a href="#object">
+				<div class="index">Object</div>
+			</a>
+			<a href="#math">
+				<div class="index">Math</div>
+			</a>
+			<a href="#date">
+				<div class="index">Date</div>
+			</a>
+			<a href="#async">
+				<div class="index">Asynchrone</div>
+			</a>
+			<a href="#tricks&tips">
+				<div class="index">tricks&tips</div>
+			</a>
+			<a href="#webpack">
+				<div class="index">webPack</div>
+			</a>
+			<a href="#function">
+				<div class="index">Function</div>
+			</a>
+			<a href="#form">
+				<div class="index">Formulaire</div>
+			</a>
+			<a href="#dom">
+				<div class="index">DOM</div>
+			</a>
+			<a href="#bom">
+				<div class="index">BOM</div>
+			</a>
+			<a href="#instruction">
+				<div class="index">Instruction</div>
+			</a>
+			<a href="#event">
+				<div class="index">Evenement</div>
+			</a>
+			<a href="#scope">
+				<div class="index">Scope</div>
+			</a>
+			<a href="#syntaxe">
+				<div class="index">Syntaxe</div>
+			</a>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- EXERCICES -->
+	<div id="crud" class="titres">
+		<h2>Exercices :</h2>
+		<p class="cliquable">Ex : add delete modify</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+
+					<code class="language-javascript">let myTab = [</code><br>
+					<code class="language-javascript">{</code><br>
+					<code class="language-javascript">nom: `pikachu`,</code><br>
+					<code class="language-javascript">img: `monImage`,</code><br>
+					<code class="language-javascript">numero: `#123`,</code><br>
+					<code class="language-javascript">types: ['fire', 'water'],</code><br>
+					<code class="language-javascript">},</code><br>
+					<code class="language-javascript">['jean', 'marcel'],</code><br>
+					<code class="language-javascript">[{ age: 17, prenom: 'marcel' }],</code><br>
+					<code class="language-javascript">[[{ race: 'elf', niveau: 137 }]],</code><br>
+					<code class="language-javascript">];</code><br><br />
+
+					<code class="language-javascript">// 1- ajouter un truc dans chaque</code><br>
+					<code class="language-javascript">// 2- enlever un truc dans chaque</code><br>
+					<code class="language-javascript">// 3- modifier un truc dans chaque</code><br><br />
+
+					<code class="language-javascript">//1 ADD</code><br>
+					<code class="language-javascript">//array of objet</code><br />
+					<code class="language-javascript">myTab[0].pays="france";</code><br>
+					<code
+						class="language-javascript">myTab[0] = Object.assign(myTab[0],{pays: "france"});</code><br><br />
+
+					<code class="language-javascript">//array of array</code><br />
+					<code class="language-javascript">myTab[1].push("didier");</code><br><br />
+
+					<code class="language-javascript">//Array of array of object</code><br />
+					<code class="language-javascript">myTab[2][0].statu = "roi"; //1-c</code><br>
+					<code
+						class="language-javascript">myTab[2][0] = Object.assign(myTab[2][0],{status : "roi"}); //1-c2</code><br><br />
+
+					<code class="language-javascript">//Array of array of array of object</code><br />
+					<code class="language-javascript">myTab[3][0][0].arme="arc";  //1-d</code><br><br /><br />
+
+					<code class="language-javascript">//2 DELETE</code><br>
+					<code class="language-javascript">// array of objet</code><br />
+					<code class="language-javascript">delete(myTab[0].pays);  //2-a</code><br><br />
+
+					<code class="language-javascript">// array of array</code><br />
+					<code class="language-javascript">//myTab[1].pop(); //le dernier</code><br>
+					<code class="language-javascript">myTab[1].splice(1,1); // celui du milieu</code><br><br />
+
+					<code class="language-javascript">//Array of array of object</code><br />
+					<code class="language-javascript">delete(myTab[2][0].statu); // statu</code><br><br />
+
+					<code class="language-javascript">//Array of array of array of object</code><br />
+					<code class="language-javascript">delete(myTab[3][0][0].arme);</code><br>
+					<code class="language-javascript">console.log(myTab);</code><br><br /><br />
+
+					<code class="language-javascript">//3 REPLACE</code><br>
+					<code class="language-javascript">//Array of object</code><br />
+					<code class="language-javascript">delete(myTab[0].img);</code><br>
+					<code class="language-javascript">myTab[0].img2="nouvelleImage";</code><br><br />
+
+					<code class="language-javascript">//Array of array</code><br />
+					<code class="language-javascript">myTab[1].splice(1,1,"nouveauMarcel");</code><br><br />
+
+					<code class="language-javascript">//Array of array of object</code><br />
+					<code class="language-javascript">delete(myTab[2][0].statu); // statu</code><br>
+					<code class="language-javascript">myTab[2][0].statu2 = "nouveau status";</code><br><br />
+
+					<code class="language-javascript">//Array of array of array of object</code><br />
+					<code class="language-javascript">delete(myTab[3][0][0].arme);</code><br>
+					<code class="language-javascript">myTab[3][0][0].arme2="nouvel arc";</code><br><br />
+
+
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Echanger l'index de deux objets dans un array</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+
+					// // Echanger l'index de deux objets dans un array <br /><br />
+
+					<code
+						class="language-javascript">var myArray = [{ music: 'Eminem' }, { music: 'Mozart' }];</code><br><br />
+
+					<code class="language-javascript">[myArray[0], myArray[1]] = [myArray[1], myArray[0]];</code><br>
+					<code class="language-javascript">console.log(myArray);</code><br> <br />
+					<code class="language-javascript">// Ou sans destructuring:</code><br />
+					<code class="language-javascript">var tempo = myArray[0];</code><br />
+					<code class="language-javascript">myArray[0]= myArray[1];</code><br />
+					<code class="language-javascript">myArray[1]=tempo;</code><br /><br />
+					<code class="language-javascript">// Ou avec sort:</code><br />
+					<code
+						class="language-javascript">myArray.sort((a,b)=>myArray.indexOf(b) - myArray.indexOf(a));</code>
+				</p>
+			</div>
+		</div>
+
+
+		<p class="cliquable">Permuter 2 valeurs dans un array (fonction)</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+					Permuter 2 valeurs dans un array (fonction) <br /><br />
+
+					<code class="language-javascript">const array = [12, -2, 55, 68, 80];</code><br> <br />
+					<code class="language-javascript">const swapElements = (array, newIndex, oldIndex) => {</code><br>
+					<code class="language-javascript">const newArray = [...array];</code><br>
+					<code
+						class="language-javascript">newArray[newIndex] = newArray.splice(oldIndex,1,newArray[newIndex])[0];</code><br>
+					<code class="language-javascript">console.log(newArray); // [ 12, 68, 55, -2, 80 ]</code><br>
+					<code class="language-javascript">};</code><br>
+
+					<code class="language-javascript">swapElements(array,1,3);</code><br><br />
+
+					La méthode splice() retourne un tableau contenant les éléments supprimés (dans ce cas, un seul
+					élément), mais l'élément lui-même est retourné comme un tableau, donc [0] est utilisé pour obtenir
+					la valeur réelle.
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">A partir d'un gestionnaire d'evenement, trouvé l'index de l'élément selectionné par rapport
+			à son parent</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+				</p>
+				<img src="../images/js/findIndexList.png" />
+			</div>
+		</div>
+
+		<p class="cliquable">Passer une list d'arguments à partir d'un tableau</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+				</p>
+				<img src="../images/js/mathMax.png" />
+			</div>
+		</div>
+
+		<p class="cliquable">Trouver le nombre le plus grand d'un tableau</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+				</p>
+				<img src="../images/js/mathMax_1.png" />
+			</div>
+		</div>
+
+
+
+		<!--  ...  -->
+		<p class="cliquable">Inverser une chaine de charactères</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>reverse a string</h3>
+				<img src="../images/js/inversion.png" />
+
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+		<p class="cliquable">Indentifier si un mot est l'anagramme de l'autre</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+				</p>
+				<img src="../images/js/anagramme.png" />
+			</div>
+		</div>
+
+
+		<p class="cliquable">Supprimer les espaces dans un mot</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+				</p>
+				<img src="../images/js/supprSpace.png" />
+			</div>
+		</div>
+
+
+
+		<!--  ...  -->
+		<p class="cliquable">Trouver température la plus proche de 0 et afficher la temp positives si ex aequo</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Math.min</h3>
+				<img src="../images/js/temp_1.png" />
+				<h3>procedurale</h3>
+				<img src="../images/js/temp_2_procedurale.png" />
+				<h3>pf</h3>
+				<img src="../images/js/temp_3_pf.png" />
+				<h3>reduce</h3>
+				<img src="../images/js/temp_4_reduce.png" />
+				<h3>sort (mvp)</h3>
+				<img src="../images/js/temp_5_sort.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+		<!--  ...  -->
+		<p class="cliquable">Code une boucle de ton choix qui affiche tous les nombres pairs entre 1 et 100</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Code une boucle de ton choix qui affiche tous les nombres pairs entre 1 et 100</h3>
+				<img src="../images/js/nombres_paires.png" />
+
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Récupérer les x dernières lignes d'un texte.</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Récupérer les x dernières lignes d'un texte.</h3>
+				<img src="../images/js/derLignes.png" />
+
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Serialiser un groupe d'objet</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Serialiser un groupe d'objet</h3>
+				<img src="../images/js/serialiser.png" />
+
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--  ...  -->
+		<p class="cliquable">Is this string a palindrome ?</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Is this string a palindrome ?</h3>
+				<img src="../images/js/isPalindrome.png" />
+
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Dans une chaîne, détecter la plus longue chaîne de caractères composée de caractères
+			distincts.</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>procedurale</h3>
+				<img src="../images/js/suite_unique.png" />
+				<h3>pf</h3>
+				<img src="../images/js/suite_unique_pf.png" />
+
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Concevoir un algorithme pour trouver tous les caractères communs à deux listes triées.</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>opti (2 parcours en même temps)</h3>
+				<img src="../images/js/char_commun_array_trié.png" />
+				<h3>non opti (très lourd)</h3>
+				<img src="../images/js/char_com_non_opti.png" />
+
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">À l’aide de deux threads, écrire “Salut Toto Salut Toto Salut Toto”, sachant que le premier
+			thread écrit “Salut” et que le deuxième écrit “Toto”.</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>totox3</h3>
+				<img src="../images/js/salut_toto.png" />
+
+
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Poussez tous les “.” d'un tableau donné à la fin du tableau. Par exemple : “a,b,.,c,.,.,k”
+			devient “a,b,c,k,.,.,.”</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Poussez tous les “.” d'un tableau donné à la fin du tableau. Par exemple : “a,b,.,c,.,.,k” devient
+					“a,b,c,k,.,.,.”</h3>
+				<img src="../images/js/lettres_et_points.png" />
+
+
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">string to binary to unary</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Notice</h3>
+				<img src="../images/js/unary_1.png" />
+				<h3>myVersion</h3>
+				<img src="../images/js/unary_2.png" />
+				<h3>optimized version</h3>
+				<img src="../images/js/unary_3.png" />
+
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--  ...  -->
+		<p class="cliquable">Écrire une fonction pour trouver la somme des nombres premiers jusqu'à un certain nombre
+			donné</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Écrire une fonction pour trouver la somme des nombres premiers jusqu'à un certain nombre donné</h3>
+				<img src="../images/js/somme_nb_premiers.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Determiner la parité d'un nombre</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Determiner la parité d'un nombre</h3>
+				<img src="../images/js/parité.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Determiner si un nombre est décimal (avec et sans méthode)</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Determiner si un nombre est décimal (avec et sans méthode)</h3>
+				<img src="../images/js/int_or_deci.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Compter le nombre de voyelles dans un string</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Compter le nombre de voyelles dans un string</h3>
+				<img src="../images/js/count_voyelles.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Verifier la présence d'une clef dans un objet</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>Verifier la présence d'une clef dans un objet</h3>
+				<img src="../images/js/isKeyInObject.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+		<!--  ...  -->
+		<p class="cliquable">A partir d'un tableau de nombres, selectionner les 2 nombres les plus proches
+			(optimisation)</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>A partir d'un tableau de nombres, selectionner les 2 nombres les plus proches (optimisation)</h3>
+				<img src="../images/js/tri_array_cheveaux.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--  ...  -->
+		<p class="cliquable">A partir d'un tableau de nombres, selectionner les 2 nombres les plus proches
+			(optimisation)</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>A partir d'un tableau de nombres, selectionner les 2 nombres les plus proches (optimisation)</h3>
+				<img src="../images/js/tri_array_cheveaux.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+
+
+
+
+
+
+	</div>
+
+
+	<!--Strings & Array-->
+	<div id="ecma" class="titres">
+		<div class="title>">
+			<h2>Strings & Arrays</h2>
+			<div class="btn-inverse btn">inverse</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable"><span class="description">Compare par order alphabetique et renvoie un num</span> <span
+				class="name">localeCompare</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Models</h2>
+				<img src="../images/js/localeCompare.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<p class="cliquable"><span class="description">Donne le type d'une var</span> <span class="name">typeof</span>
+		</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>typeof</h2>
+				<p>
+					<code class="language-javascript">const myVar = "coucou";</code><br /><br />
+
+					<code class="language-javascript">console.log(typeof myVar); // string</code><br />
+
+					<code class="language-javascript">console.log(typeof 3);  // number</code><br />
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable_sterile"><span class="description">convertie en string</span> <span
+				class="name">toString()</span></p>
+
+		<!-- ... -->
+		<p class="cliquable"><span class="description">Renvoie un bool indiquant si une var est un array</span> <span
+				class="name">Array.isArray()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">
+						const myArray = [1,2,3];  </code><br>
+
+					<code class="language-javascript"> console.log(Array.isArray(myArray));</code><br><br />
+
+					ou <br /><br />
+
+					<code class="language-javascript">Array.isArray([1, 2, 3]); // true</code><br />
+					<code class="language-javascript">Array.isArray({ toto: 123 }); // false</code><br />
+					<code class="language-javascript">Array.isArray("tototruc"); // false</code><br />
+					<code class="language-javascript">Array.isArray(undefined); // false</code><br />
+
+				</p>
+			</div>
+		</div>
+		<p class="cliquable_sterile"><span class="description">Donne la valeur primitive</span> <span
+				class="name">valueOf()</span></p>
+		<p class="cliquable_sterile"><span class="description">Donne la longeur</span> <span class="name">length</span>
+		</p>
+
+		<!--  .....  -->
+		<p class="cliquable"><span class="description">renvoie le charactere d'un string à l'index donné</span> <span
+				class="name">charAt(index)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Renvoie le char à position de l'index donnée <br />
+					<code class="language-javascript">texte.charAt(2);</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  .....  -->
+
+
+		<!--  .....  -->
+		<p class="cliquable"><span class="description"> Renvoie l'index de la première occurence</span> <span
+				class="name">indexOf(searchValue,startIndex)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					indexOf(searchValue,startIndex)<br />
+					Renvoie l'index de la première occurence =><br />
+					<code class="language-javascript">var texte = "coubole" => console.log(indexOf(b)); //3</code><br>
+				</p>
+			</div>
+		</div>
+
+		<!--  .....  -->
+		<p class="cliquable_sterile"><span class="description"> Renvoie l'index de la dernière occurence</span> <span
+				class="name">lastIndexOf(searchValue,startIndex)</span></p>
+		<!--  .....  -->
+
+		<p class="cliquable"> <span class="description">Concatène 2 tableaux</span> <span class="name">concat()</span>
+		</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					concatène 2 tab<br />
+					<code class="language-javascript">const array3 = array1.concat(array2);</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  .....  -->
+
+		<!--  .....  -->
+		<p class="cliquable"> <span class="description">clone un string un nb de fois donné</span> <span
+				class="name">repeat(count)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">p.repeat(3) // Ne marche qu'avec les strings</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  .....  -->
+		<p class="cliquable"><span class="description">
+				Renvoie un objet tableau, contenant une copie superficielle (shallow copy) d'une portion du tableau
+				d'origine</span> <span class="name">slice(startIndex,endIndex) </span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Renvoie un objet tableau, contenant une copie superficielle (shallow copy) d'une portion du tableau
+					d'origine, la portion est définie par un indice de début et un indice de fin (exclus).<br><br>
+					<code
+						class="language-javascript">const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];</code><br>
+					<code class="language-javascript">console.log(animals.slice(2));</code><br><br>
+					<code class="language-javascript">// Expected output: Array ["camel", "duck", "elephant"]</code>
+					<code class="language-javascript">console.log(animals.slice(2, 4));</code>
+					<code class="language-javascript">// Expected output: Array ["camel", "duck"]</code>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable"><span class="description">Modifie le contenu d'un tableau en retirant des éléments et/ou en
+				ajoutant de nouveaux elements et en sauvegardant les valeurs supprimés dans une var</span> <span
+				class="name">splice(startIndex,deleteCount,item1,item2,...)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Modifie le contenu d'un tableau en retirant des éléments et/ou en ajoutant de nouveaux
+					éléments<br><br>
+					<code class="language-javascript">const months = ['Jan', 'March', 'April', 'June'];</code><br>
+					<code class="language-javascript">
+						months.splice(1, 0, 'Feb'); // Inserts at index 1</code><br>
+					<code class="language-javascript">
+						console.log(months); // Expected output: Array ["Jan",
+						"Feb", "March", "April", "June"]</code><br><br>
+					<code class="language-javascript"> months.splice(4, 1,
+						'May'); // Replaces 1 element at index 4</code><br>
+					<code class="language-javascript">
+						console.log(months); // Expected output: Array ["Jan",
+						"Feb", "March", "April", "May"]
+					</code>
+				</p>
+			</div>
+		</div>
+
+		<!--  .....  -->
+		<p class="cliquable"><span class="description">Transforme en tableau selon un motif</span> <span
+				class="name">split(motif)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Créer une list. La division est effectuée en recherchant un motif<br />
+					<code
+						class="language-javascript">var texte = "coucou/hello"; texte.split("/")[1]; //hello</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  .....  -->
+
+		<p class="cliquable"><span class="description">transform une chaine en char en string</span> <span
+				class="name">join()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Transforme en chaine de char<br>
+					<code class="language-javascript">const elements = ['Fire', 'Air', 'Water'];</code><br><br>
+					<code class="language-javascript"> console.log(elements.join());</code><br>
+					<code class="language-javascript">// Expected output: "Fire,Air,Water"</code><br><br>
+					<code class="language-javascript">console.log(elements.join(''));</code><br>
+					<code class="language-javascript">// Expected output: "FireAirWater"</code><br><br>
+					<code class="language-javascript">console.log(elements.join('-'));</code><br>
+					<code class="language-javascript">// Expected output: "Fire-Air-Water"</code><br><br>
+					Pour un string, il faut transformer le string en list : <br>
+					<code class="language-javascript">var texte="Bonjour, comment ça va ?";</code><br>
+					<code
+						class="language-javascript"> console.log(texte.split("").join("*")); // "b*o*n*j*o*u*r*,* *c*o*m*m*e*n*t* *ç*a* *v*a* *?"</code><br>
+					<code
+						class="language-javascript"> console.log(texte.split(" ").join("*")); // "bonjour,*comment*ça*va*?"</code><br>
+
+				</p>
+			</div>
+		</div>
+
+		<!-- ... -->
+		<p class="cliquable"><span class="description">trie dans un tableau</span> <span class="name">sort((a,b))</span>
+		</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>tri croissant et décroissant</h2>
+				<img src="../images/js/tri.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable"><span class="description">Inverse les elements d'un tableau sans tenir compte de leur
+				valeur</span> <span class="name">reverse</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>tri croissant et décroissant</h2>
+				<p>Permet d'inverser les elements d'un tableau, sans tenir compte de leur valeur</p>
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Nettoye les espaces</span> <span class="name">trim()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">city.trim(" montreal ") // "montreal"</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  ....  -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">difference entre forEach et map</span> <span
+				class="name">difference entre forEach et map</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Les 2 méthodes sont itératives, mais forEach ne renvoit rien<br />
+					<code class="language-javascript">const arr = [1,2,3,4,5];</code><br><br />
+
+
+					<code class="language-javascript">const newArr = arr.forEach((nb)=>nb*2);</code><br>
+					<code class="language-javascript">console.log(newArr); // undefined</code><br><br />
+
+					<code class="language-javascript">const newArr = arr.map((nb)=>nb*2);</code><br>
+					<code class="language-javascript">console.log(newArr); // [2,4,6,8,10]</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  ....  -->
+
+
+		<p>forEach(callback)</p>
+		<p>map(callback)</p>
+
+
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Renvoie la valeur du premier element trouvé dans le tableau qui
+				respecte la condition donnée</span> <span class="name">find(callback)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Renvoie la valeur du premier élément trouvé dans le tableau qui respecte la condition
+					donnée<br /><br />
+					<code
+						class="language-javascript">var texte = ["c","o","u"]; console.log(texte.find((lettre)=>lettre==="u"));</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  ....  -->
+
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Test si au moins un element du tableau passe une condition et
+				renvoie un bool</span> <span class="name">some(callback)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>teste si au moins un élément du tableau passe le test (renvoie un bool)<br />
+					<code
+						class="language-javascript">const nombres = [10, 25, 7, 14, 3]; nombres.some(nombre => nombre % 2 === 0)</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  ....  -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Test si tous les elements du tableau passe le test</span> <span
+				class="name">every(callback)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>teste si tous les éléments du tableau passent le test (renvoie un bool)
+					<code class="language-javascript"></code><br>
+				</p>
+			</div>
+		</div>
+		<!--  ....  -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Determine si un tableau contiens une valeur et renvoie un
+				booléen</span>
+			<span class="name">includes(value)</span>
+		</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>renvoie bool<br />
+					<code class="language-javascript">array1.includes(2)  // array1.includes("coucou")</code><br>
+				</p>
+			</div>
+		</div>
+		<!--  ....  -->
+
+		<p class="cliquable"><span class="description">Créer et retourne un nouveau tableau dont les elements valide la
+				condition</span> <span class="name">filter(callback)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">La méthode filter() crée et retourne un nouveau tableau
+						   contenant tous les éléments du tableau d'origine qui
+						   remplissent une condition déterminée par la
+						   fonction</code><br><br>
+					<code
+						class="language-javascript">const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];</code><br>
+					<code class="language-javascript">const result = words.filter(word => word.length > 6);</code>
+					<code class="language-javascript">console.log(result);</code>
+					<code
+						class="language-javascript">// Expected output: Array ["exuberant", "destruction", "present"];</code>
+					<br /><br>
+					<code class="language-javascript">const words = ['spray', 'limit', 'elite',
+						   'exuberant','destruction', 'present'];</code>
+					<br />
+					<code class="language-javascript">const result = words.filter(word => word.length >
+						   6);</code>
+					<br />
+					<code class="language-javascript">console.log(result); // Expected output: Array
+						   ["exuberant","destruction", "present"]</code>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable"><span class="description">applique une fonction qui est un « accumulateur » et qui traite
+				chaque valeur d'une liste (de la gauche vers la droite) afin de la réduire à une seule valeur.</span>
+			<span class="name">Reduce(callback) ...</span>
+		</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>console.log([1, 2, 3].reduce((a, val) => a + val)) //Explication : 1 + 2 + 3 = 6<br /><br />
+					<code class="language-javascript"></code><br>
+					//Reduce()<br /><br />
+				<pre>
+						<code class="language-javascript">
+
+						
+
+					   //Reduce()
+
+					   const array1 = [1, 2, 3, 4, 5];
+					   const initialValue = 0;
+					   // const result = array1.reduce((accumulator, currentVal) => accumulator + currentVal,initialValue);
+					   const result = array1.reduce((accumulator, currentVal) => {
+						   return accumulator + currentVal;
+					   }, initialValue);
+					   console.log(result);
+					   
+					   //Au début de la première itération, accumulator est égal à initialValue (0)
+					   //et currentVal est égal à la première valeur du tableau (1).
+					   //Cette fonction prend les deux valeurs et retourne leur somme.
+					</code>
+				</pre>
+
+				</p>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<!--Strings-->
+	<div id="string" class="titres">
+		<h2>Strings :</h2>
+		<div class="btn-inverse btn">inverse</div>
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">`Qui suis-${je}`</span> <span class="name">template
+				literals</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">`le ${city} est sympa`</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Convertie un char en int + en float</span> <span
+				class="name">parseInt</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">convert char to nb integer</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"> <span class="description">Remplace un element par un autre dans un string</span> <span
+				class="name">replace()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">city.replace("e", "é") // "montréal"</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<p class="cliquable_sterile"> <span class="description">Transforme en minuscule</span> <span
+				class="name">toLowerCase()</span></p>
+		<p class="cliquable_sterile"><span class="description">Transforme en majuscule</span> <span
+				class="name">toUpperCase()</span></p>
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Convertie un string en operation</span> <span
+				class="name">eval(1+2)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">var addition = "1+2"; eval(addition) // eval(1+2);</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Renvoie un booléen indiquant si la chaine de caractères commence
+				par la deuxième chaine</span><span class="name">startsWith(searchString, position)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code
+						class="language-javascript">renvoie un booléen indiquant si la chaine de caractères commence par la deuxième chaine</code><br><br />
+					<img src="../images/js/startsWith.png" />
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"> <span class="description">Renvoie une chaine de charactère à partir de points
+				utf-16</span> <span class="name">String.fromCharCode(chiffre)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">transforme un chiffre en char</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+	</div>
+	<!--Arrays -->
+	<div id="array" class="titres">
+		<div class="btn-inverse btn">inverse</div>
+		<h2>Arrays :</h2>
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">crud Array</span> <span class="name">CRUD array</span></p>
+		<div class="modal">
+			<div class="modal-content">
+
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+					<code class="language-javascript">const myArray = ["un","deux","trois"];</code><br>
+				<h3>Create: </h3>
+				<code class="language-javascript">myArray.unshift("zéro"); // ajout gauche</code><br>
+				<code class="language-javascript">myArray.push("quatre"); // ajout droite</code><br>
+				<h3>Read: </h3>
+				<code class="language-javascript">console.log(myArray[0]) // "un"</code><br>
+				<h3>Update: </h3>
+				<code
+					class="language-javascript">myArray.splice(2,1,"valeur modifié"); // ["un", "deux", "valeur modifié"]</code><br>
+				<code class="language-javascript">myArray.splice(0,1,1); // [1, "deux", "trois"]</code><br>
+				<h3>Delete: </h3>
+				<code class="language-javascript">myArray.shift();  // enleve à gauche</code><br>
+				<code class="language-javascript">myArray.pop();  // enleve à droite</code><br>
+				<code class="language-javascript">myArray.splice(1,1);  // ["un", "trois"]</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+		<!--  ...  -->
+		<p class="cliquable"> <span class="description">Vielle déclaration tableau</span> <span class="name">Vielle
+				déclaration tableau</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">let monTab = new Array("un","deux");</code><br>
+				</p>
+				<p>
+					<code class="language-javascript">let myList = ["apples","oranges"];</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">tableau 2d</span> <span class="name">tableau 2d</span> </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code
+						class="language-javascript">let monTab [["chips","burgers"],["radis","tomates"]];console.log(monTab[0][1]) // burgers</code><br>
+					<code class="language-javascript">console.log(monTab[0][1]) // burgers</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+
+		<p class="cliquable"><span class="description">effectue une copie superficielle d'une partie d'un tableau
+				sur ce même tableau et le renvoie sans modifier la taille </span><span class="name">copyWithin(target,
+				start, end)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+				<p> effectue une copie superficielle (shallow copy) d'une partie d'un tableau sur ce même tableau</p>
+				<code class="language-javascript">Copy to index 0 the element at index 3
+					</code>
+				<br />
+				<code class="language-javascript">const array1 = ['a', 'b', 'c', 'd', 'e'];</code>
+				<br />
+				<code class="language-javascript">console.log(array1.copyWithin(0, 3, 4));</code>
+				<br />
+				<code class="language-javascript">// Expected output: Array ["d", "b", "c", "d",
+						"e"]</code>
+				</p>
+			</div>
+		</div>
+
+		<!-- ... -->
+		<p class="cliquable"><span class="description">Determine si un tableau contiens la valeur recherchée et renvoie
+				bool</span> <span class="name">includes</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>includes</h2>
+				<img src="../images/js/includes.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable"><span class="description">Créer un nouveau tableau contenant tous les éléments des sous
+				tableaux</span> <span class="name">flat()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>includes</h2>
+				<img src="../images/js/flat.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<p class="cliquable"><span class="description">Renvoie l'index de la première occurence du tableau qui remplit
+				la condition</span> <span class="name">findIndex(callback)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">Renvoie l'index du premier élément du tableau qui
+						satisfait une condition donnée par une fonction. Si la
+						fonction renvoie faux pour tous les éléments du tableau,
+						le résultat vaut -1.</code>
+					<br /><br>
+					<code class="language-javascript">const array1 = [5, 12, 8, 130, 44];</code>
+					<br />
+					<code class="language-javascript">const isLargeNumber = (element) => element > 13;</code>
+					<br />
+					<code class="language-javascript">console.log(array1.findIndex(isLargeNumber));</code>
+					<br />
+					<code class="language-javascript">
+						// Expected output: 3</code>
+				</p>
+			</div>
+		</div>
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Créer une nouvelle instance en array d'un object</span> <span
+				class="name">Array.from(monObject)</span> </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">crééer une nouvelle instance en array d'un object</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<p class="cliquable"><span class="description">boucle sur une fonction donnée pour chaque element du tableau
+				avec une condition</span> <span class="name">forEach(callback)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					La méthode forEach() permet d'exécuter une fonction donnée
+					sur chaque élément du tableau.<br /><br>
+					<code class="language-javascript">const array1 = ['a', 'b', 'c'];</code>
+
+					<code class="language-javascript">array1.forEach(element => console.log(element));</code>
+				</p>
+			</div>
+		</div>
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">boucle sur une fonction donnée pour
+				chaque element du tableau avec une condition et retourne le resultat</span> <span
+				class="name">map(callback)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>Utiliser index dans map(pour pouvoir selectionner quelle tache
+					supprimer)<br /><br />
+					<code class="language-javascript">const map1 = array1.map(x => x * 2);</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<p>
+
+		</p>
+		<p class="cliquable"><span class="description">créer une boucle qui itère sur les values d'un array</span> <span
+				class="name">for of</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">for of() const array1 = ['a', 'b', 'c'];</code><br />
+
+					<code class="language-javascript">for (const element of array1) { console.log(element);
+						}</code><br />
+				</p>
+			</div>
+		</div>
+
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Ajoute à la fin d'un tableau un objet</span> <span
+				class="name">Array.prototype.push(Objet.prototype)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">monTableau.push({nom:"botwald"});</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">push dans un tableau de tableau sans créer de nouveau
+				tableau</span> <span class="name">push sans créer de nouveau tableau</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">monTableau[0].push("chips");</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+	</div>
+
+
+
+	<!--  ...  -->
+
+
+	<!--Objects-->
+	<div id="object" class="titres">
+		<h2>Objects :</h2>
+		<div class="btn-inverse btn">inverse</div>
+
+		<!-- ... -->
+		<p class="cliquable"><span class="description">CRUD objet</span> <span class="name">CRUD object</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+
+				<code class="language-javascript">const myData = {</code><br>
+				&nbsp;&nbsp;<code
+					class="language-javascript">green : {nom: "data verte", description: "de l'herbe"},</code><br>
+				&nbsp;&nbsp;<code
+					class="language-javascript">red : {nom: "data rouge", description : "du feu"}</code><br>
+				<code class="language-javascript">};</code><br /><br />
+
+				<h3>Create:</h3>
+				<code class="language-javascript">myData.orange = {nom: "marron", description : "earth"};</code><br>
+				<h3>Read: </h3>
+				<code class="language-javascript">console.log(myData.green.nom);</code><br>
+				<h3>Update:</h3>
+				<code class="language-javascript">  myData.green.nom="data emeraude";</code><br>
+				<code class="language-javascript">myData.green = "nouvelle value";</code><br>
+				<code class="language-javascript">//  changer la key "green"</code><br>
+				<code class="language-javascript"> delete myData.green;</code><br>
+				<code
+					class="language-javascript"> myData.nouvelleClef = {nom: "data verte", description: "de l'herbe"};</code><br>
+				<h3>Delete</h3>
+				<code class="language-javascript"> delete myData.green.nom;</code><br>
+				<code class="language-javascript"> delete myData.green;</code><br>
+				<code class="language-javascript"> console.log(myData);</code><br>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable"><span class="description">objet qui peut contenir des valeurs uniques avec ses propres
+				méthodes</span> <span class="name">set</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>set</h2>
+				<img src="../images/js/set.png" />
+				<h3>methodes de new Set()</h3>
+				<img src="../images/js/set_2.png" />
+				<code class="language-javascript"></code><br>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable"><span class="description">iteration sur un object</span> <span
+				class="name">Objet.keys(arr).forEach(callback)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>iteration sur un object</h2>
+				<img src="../images/js/iteration_object.png" />
+				<code class="language-javascript"></code><br>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable"> <span class="description">map pour les objets</span> <span class="name">map sur les
+				objets</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+				<pre>
+					<code class="language-javascript">
+						<code class="language-javascript"></code><br>const obj = {  <br/>
+							<code class="language-javascript">a:"Pierre",</code><br>	 
+							<code class="language-javascript">b:"Périne",</code><br> 
+							<code class="language-javascript">c:"Marius"</code><br>	 
+							<code class="language-javascript">};</code><br>	 <br/> 
+
+							<code class="language-javascript">console.log(Object.keys(obj).map((item)=>`${item} : ${obj[item]}`));</code><br/><br><br>
+							<code class="language-javascript">Object.entries(obj).map((item)=>console.log(item)); // ["a","Pierre"], ["b",...  </code><br>
+							<code class="language-javascript">Object.keys(obj).map((item)=>console.log(item)); // a, b, c </code><br>
+							<code class="language-javascript">Object.values(obj).map((item)=>console.log(item)); // "Pierre", "Périne", "Marius" </code><br>
+					</code><br>
+					</pre>
+				</p>
+			</div>
+		</div>
+		<!-- ...-->
+
+		<!-- ... -->
+		<p class="cliquable"> <span class="description">Object of arrays of objects</span> <span class="name">Object of
+				arrays of objets</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">const films = {</code><br>
+
+					<code class="language-javascript">sf:[</code><br>
+					<code
+						class="language-javascript">{nom:"jurassic park",director:"steven spielberg",year:1999},</code><br>
+					<code class="language-javascript"> {nom:"coucou",director:"mr coco",year:2924}</code><br>
+					<code class="language-javascript">],</code><br>
+					<code class="language-javascript">fantastique:[</code><br>
+					<code
+						class="language-javascript">	{nom:"le seigneur des anneaux",director:"Peter jackson",year:2001}</code><br>
+					<code class="language-javascript"> ]</code><br>
+					<code class="language-javascript">};</code><br><br />
+
+					<code class="language-javascript"> //console.log(films.sf[0].year);</code><br><br />
+
+					<code class="language-javascript"> /*</code><br>
+					<code class="language-javascript"> films.sf.forEach((film)=>{</code><br>
+					<code class="language-javascript">console.log(film.nom);</code><br>
+					<code class="language-javascript">})</code><br>
+					<code class="language-javascript"> */</code><br><br />
+
+					<code class="language-javascript">Object.keys(films).forEach((key)=>{</code><br />
+
+					<code class="language-javascript">films[key].forEach((value)=>console.log(value.nom));</code><br />
+
+					<code class="language-javascript">})</code><br />
+
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable"><span class="description">filter dans un object...</span> <span class="name">filter dans un
+				object...</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					const myData = {<br />
+					&nbsp;&nbsp;data1 : {nom: "php", description : "blablabla php"},<br />
+					&nbsp;&nbsp;data2 : {nom: "js", description : "blablabal js" }<br />
+					};<br /><br />
+
+					const res = Object.values(myData).map((item)=>item.nom);
+					<br />
+					console.log(res); // php, js
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable"><span class="description">Permet de créer une nouvelle instance d'array</span> <span
+				class="name">Array.from()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">permet de créer une nouvelle instance d'Array</code><br>
+					<code class="language-javascript">//Pour un arrayLikeObject</code><br><br />
+
+					<code
+						class="language-javascript">const arrayLikeObject = { 0: 'a', 1: 'b', 2: 'c', length: 3 };</code><br><br />
+
+					<code class="language-javascript">Array.from(arrayLikeObject).map((value)=>{</code><br>
+					<code class="language-javascript"> console.log(value);</code><br>
+					<code class="language-javascript">})</code><br><br />
+
+
+					<code class="language-javascript">//Pour un string</code><br>
+					<code class="language-javascript">const monString = "azeraherioehrer";</code><br>
+					<code class="language-javascript">Array.from(monString).forEach((lettre)=>{</code><br>
+					<code class="language-javascript"> console.log(lettre);</code><br>
+					<code class="language-javascript">})</code><br><br />
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+
+
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Objet qui n'est pas une class ou qui n'a pas de constructor, et
+				qui peut utiliser une methode avec son propre contexte</span> <span class="name">Objet littéral</span>
+		</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/Object_object-litteral.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+
+
+		<p class="cliquable"><span class="description">Méthode statique qui créer un nouvel objet, utilisant un objet
+				existant comme prototype du nouvel objet créé</span> <span class="name">Object.create()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Créer une copie d'un objet<br><br>
+					<code class="language-javascript">const object1 = {</code><br>
+
+					&nbsp;&nbsp;<code class="language-javascript">val:1,</code><br>
+
+					&nbsp;&nbsp;<code class="language-javascript">func : function(){</code><br>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;<code class="language-javascript">return this.val;</code><br>
+
+					&nbsp;&nbsp; <code class="language-javascript">}</code><br>
+
+					<code class="language-javascript">}</code><br><br />
+
+					<code class="language-javascript">const object2 = Object.create(object1);</code><br>
+
+					<code class="language-javascript">object2.val=2;</code><br>
+
+					<code class="language-javascript">console.log("object1 : " + object1.val); //1</code><br>
+
+					<code
+						class="language-javascript">console.log("object2 : " + object2.val)  //2</code><br><br /><br />
+
+				<p>Fonctionne aussi avec mais on n'hérite pas des méthodes(du contexte)</p>
+				<code class="language-javascript">let newBook = JSON.parse(JSON.stringify(book));</code><br />
+				<code class="language-javascript">newBook.name="le seigneur des anneaux";</code><br />
+				<code class="language-javascript">console.log(book.name);</code><br />
+				<code class="language-javascript">console.log(book.func()) // 1</code>
+				<code class="language-javascript">console.log(newBook.func()) // undefined</code>
+
+
+				</p>
+			</div>
+		</div>
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">renvoie la valeur primitive d'un objet donné.</span> <span
+				class="name">Object.valueOf()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/Object.prototype.valueOf().png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Renvoie une chaine de char représentant l'objet</span> <span
+				class="name">Object.toString()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/Object.prototype.toString().png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<p class="cliquable"><span class="description">concatène 2 obj en remplaçant les conflits par le 2ème obj en
+				paramètre</span> <span class="name">assign()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					concatène 2 tab en replaçant les conflits par le 2ème tab en paramètre <br><br>
+					<code class="language-javascript">const target ={a:1, b:2};</code><br>
+					<code class="language-javascript">const source = {b:4,c:5};</code><br>
+					<code class="language-javascript">const result = Object.assign(target,source);</code><br>
+					<code class="language-javascript">console.log(target); //"a": 1,"b": 4,"c": 5</code><br>
+				</p>
+			</div>
+		</div>
+		<p class="cliquable"><span class="description">méthode d'objet qui créer un objet de manière plus
+				détaillé</span> <span class="name">defineProperty()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">const book = {</code><br />
+					&nbsp;&nbsp;<code class="language-javascript">name:"harry potter"</code><br />
+					<code class="language-javascript">};</code><br /><br />
+
+
+					<code class="language-javascript">Object.defineProperty(book, "author",{</code><br />
+					&nbsp;&nbsp;<code class="language-javascript">value:"Jk rolling",</code><br />
+					&nbsp;&nbsp;<code class="language-javascript">writable:true,</code><br />
+					&nbsp; &nbsp;<code
+						class="language-javascript">enumerable: true // Définir la propriété comme énumérable</code><br />
+					<code class="language-javascript">});</code><br /><br />
+
+
+					<code class="language-javascript">// Plus pratique, mais moins précis:</code><br />
+					<code class="language-javascript"> book.author="Jk rolling";</code><br /><br />
+
+					<code class="language-javascript">console.log(book);</code><br />
+
+				</p>
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+
+
+	<!--Maths -->
+	<div id="math" class="titres">
+		<h2>Maths :</h2>
+		<div class="btn-inverse btn">inverse</div>
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Convertie un nombre en valeur absolue</span> <span
+				class="name">Math.abs</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">Math.abs(-5) // 5</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">calcul un nombre par rapport à une puissance</span> <span
+				class="name">Math.pow()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">20 au carré(20*20) => Math.pow(20,2);</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">methode pour calculer le PI</span> <span
+				class="name">Math.PI</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">aire = Math.PI*rayon*rayon</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Arrondir à 2 après la virgule</span> <span
+				class="name">nb.toFixed(nb)</span> </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">let nb=3.434  => nb.toFixed(2) => 3.43</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Arrondi à l'entier le plus haut</span> <span
+				class="name">Math.ceil()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">Arrondi le nombre à l'entier le plus haut</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--  ...  -->
+		<p class="cliquable"> <span class="description">Arrondi le nb à l'entier le plus bas</span> <span
+				class="name">Math.floor()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">Arrondi le nombre à l'entier le plus bas</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--  ...  -->
+		<p class="cliquable"> <span class="description">Arrondi le nombre à l'entier le plus proche</span> <span
+				class="name">Math.round()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">Arrondi le nombre à l'entier le plus proche</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">Méthode pour obtenir le nombre le plus grand ou le plus petit
+				d'une liste</span> <span class="name">Math.max()/min()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">On lui passe une liste de nombres (pas un tab)</code><br />
+					<code class="language-javascript"> console.log(Math.max(1, 2, 3, 4, 5));</code><br /><br />
+
+					<code class="language-javascript">	Ou avec un tableau : </code><br />
+					<code class="language-javascript">const arr = [1, 2, 3, 4, 5];</code><br /><br />
+
+
+					<code class="language-javascript">console.log(Math.max.apply(null, arr));</code><br />
+
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--  ...  -->
+		<p class="cliquable"><span class="description">créer un nombre aléatoire</span> <span
+				class="name">Math.random()*(10)+10</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+
+				<p>
+					Nombre entre 10 et 20<br /><br />
+					Math.random() * (nb d'unité qui dépasse la base) + seuil<br /><br />
+					<code class="language-javascript">console.log(Math.round(Math.random()*(10)+10));</code>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+	</div>
+
+	<!-- <div class="btn-inverse btn">inverse</div>
+<span class="description"></span> <span class="name"></span> -->
+
+	<div id="date" class="titres">
+		<h2>Date : </h2>
+		<div class="btn-inverse btn">inverse</div>
+		<!--   ...   -->
+		<p class="cliquable"><span class="description">Date en ms</span> <span class="name">new Date().getTime()</span>
+		</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>new Date().getTime()</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--   ...   -->
+		<p class="cliquable"><span class="description">obtenir les heures</span> <span class="name">new
+				Date().getHours()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>new Date().getHours()</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--   ...   -->
+		<p class="cliquable"><span class="description">Jour de la semaine( dimanche = 0, lundi = 1 etc..)</span> <span
+				class="name">new Date().getDay()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>new Date().getDay()</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--   ...   -->
+		<p class="cliquable"><span class="description">N° du mois (ex: 23)</span> <span class="name">new
+				Date().getDate()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>new Date().getDate()</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--   ...   -->
+		<p class="cliquable"><span class="description">Obtenir l'année</span> <span class="name">new
+				Date().getFullYear()</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>new Date().getFullYear()</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--   ...   -->
+		<p class="cliquable"><span class="description">créer une nouvelle date à partir de date/mois/année</span> <span
+				class="name">new Date(year,month-1,date)</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>new Date(year,month-1,date)</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--   ...   -->
+		<p class="cliquable"><span class="description">créer une date dans 24h</span> <span class="name">new
+				Date().getTime()+3600*24</span></p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>new Date(year,month-1,date)</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+
+
+	</div>
+
+	<div id="webpack" class="titres">
+		<h2>webpack :</h2>
+		<!-- ... -->
+		<p class="cliquable">starter + modules es6 et common js</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>starter + modules es6 et common js</h2>
+				<img src="../images/js/webpack.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">dotEnv pour front av webpack</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>dotEnv pour front av webpack</h2>
+				<img src="../images/js/ENV_front.png" />
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<div id="async" class="titres">
+		<h2>Asynchrone :</h2>
+		<!-- ... -->
+		<p class="cliquable">debounce</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>debounce</h2>
+				<img src="../images/js/debounce.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">Utilisation de callback</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Utilisation de callback</h2>
+				<img src="../images/js/use_callback.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<h3>Syntaxe callback: </h3>
+		<!-- ... -->
+		<p class="cliquable">var new Promise</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>var new Promise</h2>
+				<img src="../images/js/asynchrone_var_promise.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">return new Promise</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>return new Promise</h2>
+				<img src="../images/js/asynchrone_return_promise.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Promise.all</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Promise.all</h2>
+				<img src="../images/js/asynchrone_promiseAll.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable"> requête</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+
+					.then()<br /><br />
+				<pre>
+				<code class="language-javascript">
+const adresse = 'https://www.randomuser.me/api';
+
+fetch(adresse)
+	.then((res) => {
+		return res.json();
+	})
+	.then((res) => {
+		return res.results[0];
+	})
+	.then((res) => {
+		console.log(res.gender);
+	})
+	.catch((err) => {
+		console.log(err);
+	});
+
+				</code>
+				</pre>
+
+
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<h3>Syntaxe async await</h3>
+		<!-- ... -->
+		<p class="cliquable">Raccourcie Promise + setTimeout</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Raccourcie promise + setTimeout</h2>
+				<img src="../images/js/raccourcie_promise.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">await new Promise</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>await new Promise</h2>
+				<img src="../images/js/await_new_promise.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">var new Promise</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>var new Promise</h2>
+				<img src="../images/js/var_et_new_promise.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">return new Promise</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>return new Promise</h2>
+				<img src="../images/js/new_promise_return.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Promise.all</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Promise.all</h2>
+				<img src="../images/js/promiseAll.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+
+
+
+		<p class="cliquable">requête</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+					Async await<br /><br />
+
+					<code class="language-javascript">const adresse = 'https://www.randomuser.me/api';</code><br><br />
+
+					<code class="language-javascript">const getResults = async (url) => {</code><br>
+					<code class="language-javascript">try{</code><br>
+					<code class="language-javascript">const preRes = await fetch(url)</code><br>
+					<code class="language-javascript">const res = await preRes.json();</code><br>
+					<code class="language-javascript">console.log(res.results[0].gender);</code><br>
+
+					<code class="language-javascript">}catch(err){</code><br>
+					<code class="language-javascript">console.log(err);</code><br>
+					<code class="language-javascript">};</code><br>
+					<code class="language-javascript">};</code><br>
+
+					<code class="language-javascript">getResults(adresse);</code><br>
+				</p>
+			</div>
+		</div>
+
+		<h3>Requête fetch models</h3>
+
+		<p class="cliquable">POST fetch</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">const getAddress = async(url)=>{</code><br>
+
+					<code class="language-javascript">try{</code><br>
+
+					<code class="language-javascript">const result = await fetch(url,{</code><br>
+
+					<code class="language-javascript">method: "POST",</code><br>
+
+					<code class="language-javascript">headers:{</code><br>
+
+					<code class="language-javascript">"Accept":"application/json",</code><br>
+
+					<code class="language-javascript">"Content-type":"application/json",</code><br>
+
+					<code class="language-javascript">"Authorization": `Bearer ${token}`,</code><br>
+
+					<code class="language-javascript">},body:JSON.stringify({</code><br>
+
+					<code class="language-javascript">title:e.target.form.title.value</code><br>
+
+					<code class="language-javascript">}),</code><br>
+
+					<code class="language-javascript">});</code><br>
+
+					<code class="language-javascript">}catch(err){</code><br>
+
+					<code class="language-javascript">console.log(err);</code><br>
+
+					<code class="language-javascript">}</code><br>
+
+					<code class="language-javascript">}</code><br>
+
+					<code class="language-javascript">getAddress("https://localhost:3000/api/stuff");</code><br>
+
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">POST files</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>POST files</h2>
+				<img src="../images/js/inputFiles.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+
+		<h3>Autres</h3>
+
+
+		<p class="cliquable">setInterval/clearInterval et setTimeout/clearTimeout</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/setInterval.png" />
+			</div>
+		</div>
+
+		<p class="cliquable">setInterval/clearInterval forme raccourcie</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/setInterval_raccourcie.png" />
+			</div>
+		</div>
+	</div>
+
+
+	<div id="tricks&tips" class="titres">
+		<h2>tricks&tips</h2>
+		<!-- ... -->
+		<p class="cliquable">scroll modal </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>scroll modal</h2>
+				<img src="../images/js/js_scroll.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">formData</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>formData</h2>
+				<img src="../images/js/formData.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">formData avec contact form (priorité)</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>formData avec contact form (priorité)</h2>
+				<img src="../images/js/form_contact.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Holly Grall </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Hooly Grall</h2>
+				<img src="../images/js/holyGrail.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">preview image</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>preview image</h2>
+				<img src="../images/js/preview_btn.png" />
+				<img src="../images/js/preview_input.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">selecteurs</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Selecteurs</h2>
+				<code class="language-javascript"></code>
+				class: selecteurs communs<br />
+				id : une seul selecteur<br />
+				name: envoie de data via url (php, radio, url, etc...)<br /><br />
+
+				<b>Name</b><br />
+				HTML:<br />
+				<code class="language-javascript">&lt;input type="file" name="myImg" /&gt;</code><br />
+				CSS:<br />
+				<code class="language-javascript">input[name="myImg"]{</code><br />
+				<code class="language-javascript">display:none;</code><br />
+				<code class="language-javascript">}</code><br />
+				JS:<br />
+				<code class="language-javascript">document.querySelector("input[name='myImg']");</code><br /><br />
+				<b>Label</b><br />
+				label utilise uniquement l'id d'un selecteur:<br />
+				<code class="language-javascript">&lt;input type="file" id="monImg" /&gt;</code> <br />
+				<code class="language-javascript">&lt;label for="monImg" /&gt;</code><br />
+
+
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">Cacher l'input</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>cacher l'input</h2>
+				<img src="../images/js/hide_input.png" />
+
+			</div>
+		</div>
+		<!-- ... -->
+
+	</div>
+
+	<div id="POO" class="titres">
+		<h2>POO :</h2>
+		<h4>Architectures POO SOLID:</h4>
+		<!-- ... -->
+		<p class="cliquable">Architectures POO SOLID</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Architectures POO SOLID</h2>
+				<img src="../images/js/poo_solid_archi.PNG" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<h4>Les principes de la POO:</h4>
+		<!-- ... -->
+		<p class="cliquable">Classe</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Les classes</h2>
+				<img src="../images/js/class.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Encapsulation</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Encapsulation</h2>
+				<p>L'encapsulation permet de contrôler l'accès aux données et de protéger l'intégrité de ces données en
+					définissant des niveaux d'accès.</p>
+				<img src="../images/js/encapsulation.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Héritage</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Héritage</h2>
+				<p>Si on veux ajouter une nouvelle méthode, il faut mettre à jour l'interface, ou utiliser un extends
+				</p>
+				<img src="../images/js/class_heritage.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Polymorphisme</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Polymorphisme</h2>
+				<img src="../images/js/polymorphisme.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Abstraction</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Abstraction</h2>
+				<p>C'est une interface, une classe abstraite</p>
+				<p>Ok donc l'interface est là pour donner une idée générale au développeur de ce à quoi sert la classe
+					dérivé ? </p>
+				<img src="../images/js/abstraction.png" />
+				<img src="../images/js/poo_interface_2.png" />
+				<img src="../images/js/poo_abstraction.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Composition</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Composition</h2>
+				<img src="../images/js/composition.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<h4>Les principes SOLID:</h4>
+		<!-- ... -->
+		<p class="cliquable">Single Responsability Principle</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Single Responsability Principle</h2>
+				<p>Responsable d'une seule partie du code</p>
+				<img src="../images/js/poo_SOLID_0_SRP.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Open/Closed principle</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Open/Closed principle</h2>
+				<p>Une classe doit être ouverte à l'extention, mais fermé à la modification (héritage ou composition)
+				</p>
+				<img src="../images/js/poo_SOLID_1_ocp(1).png" />
+				<img src="../images/js/poo_SOLID_1_ocp(2).png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Liskov Substitution Principle</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Liskov Substitution Principle</h2>
+				<p>Une classe hérité ne peut pas hérité d'une méthode ou d'un objet qu'elle ne peut pas utiliser</p>
+				<p>Donc on doit créer des classes intermédiaire pour séparer les classes trop différentes</p>
+				<br />
+				<p>les objets d'une classe dérivée doivent pouvoir être remplacés par des objets de la classe de base
+					sans altérer le bon fonctionnement du programme.</p>
+				<p>En d'autres termes, si une classe B est une sous-classe de A, alors les instances de B doivent
+					pouvoir être utilisées partout où des instances de A sont attendues, sans que le programme ne
+					rencontre de comportement incorrect.</p>
+				<img src="../images/js/poo_SOLID_2_Lsp(1).png" />
+				<img src="../images/js/poo_SOLID_2_Lsp(2).png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Interface Segregation Principle</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Interface Segregation Principle</h2>
+				<p>Créer des interfaces spécifiques aux besoin plutôt qu'une interface générale et longue</p>
+				<img src="../images/js/poo_SOLID_4_ISP(1).png" />
+				<img src="../images/js/poo_SOLID_4_ISP(2).png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Dependency Inversion Principle</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Dependency Inversion Principle</h2>
+				<p>Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau. Tous deux doivent
+					dépendre d'abstractions.</p>
+				<p>Les abstractions ne doivent pas dépendre des détails. Les détails doivent dépendre des abstractions.
+				</p>
+				<br />
+				<p>Abstraction: En programmation, une abstraction est typiquement une interface ou une classe abstraite
+					qui déclare des méthodes sans les implémenter.</p>
+				<p>Détails: Les détails sont les implémentations concrètes des abstractions.</p>
+				<br />
+				<p>Les paramètres message et recipient, c'est mieux de les mettre dans la méthode que dans le
+					constructor </p>
+				<br />
+				<p>haut niveau : composant ou classe qui gère la logique affaire/métier (les classes normales)</p>
+				<p>bas niveau : composant ou classe qui fournissent des services utilitaires (BDD, API, etc...)</p>
+				<p>Abstraction : classe abstraite qui définissent les contrats que les implémentations doivent
+					respecter. (interfaces)</p>
+				<img src="../images/js/poo_injection_inversé_dependence.PNG" />
+
+			</div>
+		</div>
+		<!-- ... -->
+
+
+		<h4>Exemples d'utilisation de la POO:</h4>
+		<!-- ... -->
+		<p class="cliquable">Router</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Router</h2>
+				<img src="../images/js/poo_router.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">events dans la classe</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>exemple poo grosse classe</h2>
+				<img src="../images/js/poo_bindEvents.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Config interface + héritage petit enfant</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>How to create an interface (abstract class)</h2>
+				<img src="../images/js/poo_interface_how.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Modal</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Modal</h2>
+				<img src="../images/js/poo_modal.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Interface/service/component pour renderer</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Interface renderer</h2>
+				<img src="../images/js/poo_interface_render.png" />
+				<h2>Service renderer</h2>
+				<img src="../images/js/poo_service_render.png" />
+				<h2>component renderer</h2>
+				<img src="../images/js/poo_component_render.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Ajout d'une class supérieur abstraite pour les méthodes</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Ajout d'une class supérieur abstraite pour les méthodes</h2>
+				<img src="../images/js/poo_SOLID_abstraction_methods.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+
+
+	</div>
+
+
+
+
+
+
+	<div id="function" class="titres">
+		<h2>Fonctions :</h2>
+
+		<!-- ... -->
+		<p class="cliquable">Fonction flêché</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Héritage</h2>
+				<img src="../images/js/f_fleché.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<p class="cliquable">function constructor + prototype + heritage + prototype.constructor : </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/fonction_prototype.png" />
+			</div>
+		</div>
+
+
+		<p class="cliquable">call apply et bind</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">let gandalf = { titre: 'Magicien' }; // objet littéral</code><br>
+					<code class="language-javascript">function direBonjour() { </code><br>
+					<code class="language-javascript">console.log('Bonjour ' + this.titre);</code><br>
+					<code class="language-javascript">}</code><br> <br />
+
+					<code
+						class="language-javascript">direBonjour.call(gandalf); // marche aussi avec apply => direBonjour.apply(gandalf);</code><br>
+					<br />
+					<code
+						class="language-javascript">// Mais alors quel est la différence entre call et apply ?</code><br>
+					<code
+						class="language-javascript">// apply a besoin d'un tableau pour passer ses arguments</code><br>
+					<code class="language-javascript">// call a besoin de recevoir ses arguments un à un</code><br>
+
+					<code class="language-javascript">function direBonjour(arme, degats) {</code><br>
+					<code class="language-javascript">console.log(this.titre + ' ' + arme + ' ' + degats);</code><br>
+					<code class="language-javascript">}</code><br>
+					<code class="language-javascript">direBonjour.call(gandalf, 'un baton', 75);</code><br>
+					<code class="language-javascript">direBonjour.apply(gandalf, ['un bâton', 75]);</code><br><br />
+
+
+
+					// Bind() <br />
+					//La méthode bind() crée une nouvelle fonction qui, lorsqu'elle est appelée, a pour contexte this la
+					valeur passée en paramètre et éventuellement une suite d'arguments qui précéderont ceux fournis à
+					l'appel de la fonction créée.<br /><br />
+
+					<code class="language-javascript">const module = {</code><br />
+					<code class="language-javascript">x: 42,</code><br />
+					<code class="language-javascript">getX: function () {</code><br />
+					<code class="language-javascript"> return this.x;</code><br />
+					<code class="language-javascript">},</code><br />
+					<code class="language-javascript">};</code><br /><br />
+
+					// bien sur attribuer directement la fonction avec les () fonctionne:<br />
+					<code class="language-javascript">  let nouveauModule = module.getX();</code><br />
+					<code class="language-javascript">console.log(nouveauModule);</code><br /><br />
+
+					// par contre si on lui passe juste la keys, ça ne fonctionne pas et renvoie "undefined"<br />
+					<code class="language-javascript">let nouveauModule = module.getX;</code><br />
+					<code class="language-javascript">console.log(nouveauModule());</code><br /><br />
+
+					//donc si on veux juste passer par la keys, on doit bind la nouvelle variable à l'objet( et crééer
+					une nouvelle var)<br />
+					<code class="language-javascript"> let nouveauModule = module.getX;</code><br />
+					<code class="language-javascript">let nouveauModuleBinded = nouveauModule.bind(module);</code><br />
+					<code class="language-javascript"> console.log(nouveauModuleBinded());</code><br /><br />
+
+				</p>
+			</div>
+		</div>
+
+
+		<p class="cliquable">getter & setter</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/get_et_set.png" />
+
+			</div>
+		</div>
+
+		<p class="cliquable">apply()</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>La méthode apply() appelle une fonction en lui passant une valeur this et des arguments sous forme
+					d'un tableau (ou d'un objet semblable à un tableau).</p><br />
+				<p>
+					Math.max ne fonctionne pas directement avec un tableau. C'est là que la méthode apply entre en jeu.
+					En utilisant apply, nous pouvons appliquer Math.max au tableau numbers
+					<code class="language-javascript">const numbers = [5, 10, 8, 3, 2];</code><br>
+
+					<code class="language-javascript"> const maxNumber = Math.max.apply(null,numbers);</code><br>
+
+					<code class="language-javascript">console.log(maxNumber); // Affiche 10</code><br>
+
+
+				</p>
+			</div>
+		</div>
+		<!--  ...  -->
+		<p class="cliquable">Call() </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">const maxNumber = Math.max.call(null, ...numbers);</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">call et apply différence </p>
+		<div class="modal">
+			<div class="modal-content">
+				<img src="../images/js/call_et_apply.png" />>
+
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<h4>Les class</h4>
+
+		<!-- ... -->
+		<p class="cliquable">Classe</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Les classes</h2>
+				<img src="../images/js/class.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Héritage</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Héritage</h2>
+				<img src="../images/js/class_heritage.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Encapsulation</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Encapsulation</h2>
+				<img src="../images/js/encapsulation.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Dépendance</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Dépendance</h2>
+				<img src="../images/js/dependance.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Aggrégation</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Aggrégation</h2>
+				<img src="../images/js/aggregation.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Aggrégation 2</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Aggrégation</h2>
+				<img src="../images/js/aggregation_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Composition</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Composition</h2>
+				<img src="../images/js/composition.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Composition 2</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Composition</h2>
+				<img src="../images/js/composition_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">Interface</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Interface</h2>
+				<img src="../images/js/interfaces.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Abstraction</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Abstraction</h2>
+				<img src="../images/js/abstraction.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Polymorphisme</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Polymorphisme</h2>
+				<img src="../images/js/polymorphisme.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Injection de dépendance</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Injection de dépendance</h2>
+				<img src="../images/js/class_injection_dependance.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+
+
+
+
+		<!-- ... -->
+		<h4>bind</h4>
+		<p class="prototype">Function.prototype.bind(thisArg, arg1, arg2)</p>
+		<p class="cliquable">definition</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>definition</h2>
+				<p>Avec la méthode bind(), un objet peut emprunter une méthode d'un autre objet.</p>
+				<br />
+				<p>La méthode bind() crée une nouvelle fonction qui, lorsqu'elle est appelée, appelle cette fonction
+					avec son mot-clé this défini sur la valeur fournie, ainsi qu'une séquence donnée d'arguments
+					précédant tout argument fourni lors de l'appel de la nouvelle fonction.</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Fixer contexte(this) d'une fonction/methode</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>fixer contexte(this) d'une fonction/methode</h2>
+				<img src="../images/js/bind_1.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Fixer des paramètres</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>fixer des paramètres</h2>
+				<img src="../images/js/bind_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Utilisation avec des événements</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Utilisation avec des événements</h2>
+				<img src="../images/js/bind_3.png" />
+				<img src="../images/js/bind_3_class.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Utilisation avec des méthodes d'objet</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Utilisation avec des méthodes d'objet</h2>
+				<img src="../images/js/bind_4.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Utilisation de bind dans la programmation fonctionnelle</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>'utilisation de bind dans la programmation fonctionnelle</h2>
+				<img src="../images/js/bind_pf.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">fonction objet ..</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">function creerAnimal(nom,age,sexe){</code><br>
+
+					<code class="language-javascript">var animal = {},</code><br>
+
+					<code class="language-javascript">animal.nom = nom,</code><br>
+
+					<code class="language-javascript">animal.age = age,</code><br>
+
+					<code class="language-javascript">animal.sexe = sexe;</code><br>
+
+					<code class="language-javascript">return animal;</code><br>
+
+					<code class="language-javascript">};</code><br><br>
+
+					<code class="language-javascript">var chien1 = creerAnimal("ramses",false);</code><br>
+
+					<code class="language-javascript">var chat2 = creerAnimal("liberty",2,true);</code><br>
+
+				</p>
+			</div>
+		</div>
+		<!--  ...  -->
+		<p class="cliquable">f°autoInvoqués</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">( ()=>{})()</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<p class="cliquable">classes ..</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Dans certains cas simples où la fonctionnalité est limitée et ne nécessite pas de maintenir un état
+					ou d'encapsuler des données, une fonction objet peut suffire.<br><br>
+					<code class="language-javascript">class Fille{</code><br>
+
+					<code class="language-javascript">constructor(prénom){</code><br>
+
+					<code class="language-javascript">this.name = prénom;</code><br>
+
+					<code class="language-javascript">	}</code><br>
+
+					<code class="language-javascript">whoIsShe(){</code><br><br>
+
+
+					<code class="language-javascript">return `Elle s'appelle ${this.name}`;</code><br>
+
+					<code class="language-javascript">}</code><br>
+
+					<code class="language-javascript">}</code><br>
+
+					<code class="language-javascript">var myGirl = new Fille("Anna");</code><br><br>
+
+
+					<code class="language-javascript">myGirl.whoIsShe(); // Elle s'appelle Anna</code><br>
+
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">classes héritage ..</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">class MoreInfo extends Fille{</code><br>
+
+					<code class="language-javascript">constructor(prénom,age){</code><br>
+
+					<code class="language-javascript">this.age=age;</code><br>
+
+					<code class="language-javascript">}</code><br>
+
+					<code class="language-javascript">giveOnlyAge(){</code><br>
+
+
+					<code class="language-javascript">return console.log(this.age);</code><br>
+
+					<code class="language-javascript">}</code><br>
+
+					<code class="language-javascript">}</code><br>
+
+					<code class="language-javascript">var auxYeuxBleux = newMoreInfo("Isabelle", 32);</code><br><br>
+
+
+					<code
+						class="language-javascript">console.log(`${auYeuxBleux.whoIsShe()} et elle a ${auxYeuxBleux.age} ans`);</code><br>
+
+					<code class="language-javascript">console.log(auxYeuxBleux.giveOnlyAge();)</code><br>
+
+
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<h4>Les closures</h4>
+		<!-- ... -->
+		<p class="cliquable">Def</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Héritage</h2>
+				<p>une fermeture est un enregistrement stockant une fonction ainsi qu'un environnement</p>
+				<p>Une fonction a toujours accès à la scope d'au dessus (de ses parents)</p>
+				<br />
+				<img src="../images/js/closure_intro.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Les closures principe</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">// Les closures</code><br />
+					<code class="language-javascript">//fonction dans une fonction</code><br />
+					<code
+						class="language-javascript">//garde en mémoire les var locales de la f°(à l'intérieur d'une fonction) même si la fonction est terminée et ses variables locales sont détruites.</code><br />
+					<code
+						class="language-javascript">//la closure sauvegarde les variables locales ET peut le faire plusieurs fois !!!</code><br /><br />
+					<code class="language-javascript">function bonjour(prenom){</code><br />
+					<code class="language-javascript">let resultat = "Bonjour " + prenom; // var local;</code><br />
+					<code class="language-javascript">let maClosure = () => console.log(resultat);</code><br />
+					<code class="language-javascript">	return maClosure;</code><br />
+					<code class="language-javascript">	};</code><br />
+					<code
+						class="language-javascript">//Donc enregistre la var prénom dans la closure(f° ds f°)</code><br /><br />
+					<code class="language-javascript">	let maFonction = bonjour("Jean");</code><br />
+					<code class="language-javascript">maFonction();</code><br />
+					<code class="language-javascript">// Sans closures, il faut faire ça : </code><br />
+					<code class="language-javascript">function bonjour_bis(prenom){</code><br />
+
+					<code class="language-javascript">let resultat = "Bonjour " + prenom;</code><br />
+					<code class="language-javascript">console.log(resultat);</code><br />
+					<code class="language-javascript">};</code><br />
+					<code class="language-javascript">bonjour_bis("Nicolas");</code><br />
+
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">closures encapsulation</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>closures encapsulation</h2>
+				<img src="../images/js/closures.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">closures callback</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>closures callback</h2>
+				<img src="../images/js/closureCallback.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">closures state</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>closures state</h2>
+				<img src="../images/js/closure_state.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<h4>High order function</h4>
+		<!-- ... -->
+		<p class="cliquable">def</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>def</h2>
+				<img src="../images/js/hof_1.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">autre ex</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>closures state</h2>
+				<img src="../images/js/hof_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<h4>Generators</h4>
+		<!-- ... -->
+		<p class="cliquable">Generators</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Generators</h2>
+				<img src="../images/js/generators.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<h4>Currying</h4>
+		<!-- ... -->
+		<p class="cliquable">Currying</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Currying</h2>
+				<img src="../images/js/currying.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+
+	</div>
+
+
+
+
+	<div id="form" class="titres">
+		<h2>Formulaires : </h2>
+		<!-- ... -->
+		<p class="cliquable">input[type="text"] ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code
+						class="language-javascript">&lt;input type="text" name="myInput" value="coucou" /&gt;</code><br><br />
+					<code
+						class="language-javascript">var myInput = document.querySelector('input[type="text"]');</code><br>
+					<code class="language-javascript">console.log(myInput.value)</code><br>
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!--  ...  -->
+		<p class="cliquable">readline-sync </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code
+						class="language-javascript">var readline = require("readline-sync");  var prénom = readline.question("Comment t'appelles tu ? : ");</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<p class="cliquable">Prompt : ..</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code
+						class="language-javascript">var gareArrivée = prompt("Où souhaitez vous aller ? : ") || "gare de Poitiers";</code><br>
+
+					<code class="language-javascript">console.log(gareArrivée); // par defaut : poiters</code><br>
+
+				</p>
+			</div>
+		</div>
+		<p class="cliquable">onsumit ..</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Uniquement le dom (pas e.target.form.texte.value)<br><br>
+					<code class="language-javascript">form onsubmit="handleForm(event)"></code><br>
+					<code class="language-javascript">input type="text" id="texte"/></code><br>
+					<code
+						class="language-javascript">input type="submit" class="myInput" class="myInput" value="Envoyer"/></code><br>
+					<code class="language-javascript">/form>	</code>
+					<br><br>
+					<code class="language-javascript">function handleForm(e){</code><br>
+					<code class="language-javascript">e.preventDefault();</code><br>
+					<code class="language-javascript">let texte = document.getElementById("texte");</code><br>
+					<code class="language-javascript">lert(texte.value);</code>a<br>
+					<code class="language-javascript">}</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">onclick ..</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					e.target.form.texte.value ou utiliser dom<br><br>
+					<code class="language-javascript">form></code><br>
+					<code class="language-javascript">input type="text" id="texte"/></code><br>
+					<code
+						class="language-javascript">input type="submit" class="myInput" value="Envoyer" onclick="handleForm(event)"></code><br>
+					<code class="language-javascript">/form></code><br>
+					<br><br>
+					<code class="language-javascript">function handleForm(e){</code><br>
+					<code class="language-javascript">e.preventDefault();</code><br>
+					<code class="language-javascript">const texte = e.target.form.texte.value;</code><br>
+					<code class="language-javascript">alert(texte);</code><br>
+					<code class="language-javascript">}</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">oninput ..</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					e.target.form.texte.value ou utiliser dom<br><br>
+					<code class="language-javascript">form oninput="handleForm(event)"></code><br>
+					<code class="language-javascript">input type="text" id="texte" name="texte"/></code><br>
+					<code class="language-javascript">/form></code><br>
+					<br><br>
+					<code class="language-javascript">function handleForm(e){</code><br>
+					<code class="language-javascript">e.preventDefault();</code><br>
+					<code class="language-javascript">const texte = e.target.form.texte.value;</code><br>
+					<code class="language-javascript">alert(texte);</code><br>
+					<code class="language-javascript">}</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">e.target.elements[] ..</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">form oninput="handleForm(event)"></code><br>
+					<code class="language-javascript">input type="text"/></code><br>
+					<code class="language-javascript">/form></code><br>
+					<br><br>
+					<code class="language-javascript">function handleForm(e){</code><br>
+					<code class="language-javascript">e.preventDefault();</code><br>
+					<code class="language-javascript">const texte = e.target.elements[0].value;</code><br>
+					<code class="language-javascript">alert(texte);</code><br>
+					<code class="language-javascript">}</code><br>
+				</p>
+			</div>
+		</div>
+
+
+
+	</div>
+
+	<div id="bom" class="titres">
+		<h2>BOM</h2>
+		<p class="cliquable">storage : ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">//localStorage & sessionStorage</code><br><br />
+
+
+					<code class="language-javascript">sessionStorage[clé], [valeur];</code><br>
+
+					<code class="language-javascript">//CREER </code><br>
+					<code class="language-javascript">sessionStorage.setItem("clé","valeur");</code><br>
+					<code class="language-javascript">//GET</code><br>
+					<code class="language-javascript">sessionStorage.getItem("clé");</code><br>
+					<code class="language-javascript">//ENLEVER</code><br>
+					<code class="language-javascript">sessionStorage.removeItem("clé");</code><br>
+					<code class="language-javascript">//TOUT EFFACER</code><br>
+					<code class="language-javascript">sessionStorage.clear();</code><br><br />
+					<code class="language-javascript">//TRANSFORMER EN STRING POUR LE STORAGE</code><br>
+					<code class="language-javascript">sessionStorage.setItem("clé",JSON.stringify("valeur"));</code><br>
+					<code class="language-javascript">//TRANSFORMER EN OBJECT POUR LE JS</code><br>
+					<code class="language-javascript">JSON.parse(sessionStorage.getItem("clé"));</code><br>
+
+				</p>
+			</div>
+		</div>
+		<p>window.open()</p>
+		<p>window.close()</p>
+
+		<p class="cliquable">geolocation</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code
+						class="language-javascript">navigator.geolocation.getCurrentPosition((position) => {</code><br>
+
+					<code class="language-javascript">let lat = position.coords.latitude;</code><br>
+					<code class="language-javascript">let long = position.coords.longitude;</code><br><br />
+
+					<code class="language-javascript">latText.innerText = lat.toFixed(2);</code><br>
+					<code class="language-javascript">longText.innerText = long.toFixed(2);</code><br>
+					<code class="language-javascript"> });</code><br>
+				</p>
+			</div>
+		</div>
+
+
+		<p class="cliquable">navigator</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">//navigator</code><br>
+					<code
+						class="language-javascript">// permet de connaitre la langue donc d'adapter des fonction de date dans la bonne lg</code><br>
+					<code class="language-javascript">navigator.cookieEnabled;  // true</code><br>
+					<code class="language-javascript">navigator.platform;  // win32</code><br>
+					<code class="language-javascript">navigator.language;  // fr</code><br>
+				</p>
+			</div>
+		</div>
+
+
+		<p class="cliquable">navigator</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">//history</code><br>
+					<code
+						class="language-javascript">// permet de rediriger vers la page d'avant ou d'après(ne marche pas av navigation privé);</code>
+					<code class="language-javascript">history.back(); // page précédente</code>
+					<code class="language-javascript">history.forward(); // page suivante</code>
+				</p>
+			</div>
+		</div>
+
+
+
+		<!--  ...  -->
+		<p class="cliquable">location</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">location.reload(); // recharger une page
+	</code><br>
+				</p>
+				<p>
+					<code class="language-javascript">location.href();  // redirection</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<p class="cliquable">Récupérer paramètres url</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Récupérer id dans l'url</h2>
+				<p>
+					<code class="language-javascript">./product.html?id=${value[i]._id}`</code><br /><br /><br />
+					<code class="language-javascript">var str = window.location.href;</code><br>
+					<code class="language-javascript">var url = new URL(str);</code><br>
+					<code class="language-javascript">var id = url.searchParams.get("id");</code><br>
+					<code class="language-javascript">console.log(str);</code><br>
+				</p>
+				<h2>Récupérer plusieurs paramètres dans l'url</h2>
+				<img src="../images/js/para_url.png" />
+			</div>
+		</div>
+		<p class="cliquable">Récupérer path name</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Récupérer path name</h2>
+				<img src="../images/js/path.png" />
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<div id="dom" class="titres">
+		<h2>DOM :</h2>
+		<!--  ...  -->
+		<p class="cliquable">getAttribute()</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code
+						class="language-javascript">let attribut = element.getAttribute(nom_attribut);// donne la value de l'attribut</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		</p>
+		<p class="cliquable">Selection individuel</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">document.getElementById("monId");</code><br>
+					<code class="language-javascript">document.querySelector(".maClasse")/(#monId);</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Selection multiple</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">document.getElementsByTagName("p");</code><br>
+					<code class="language-javascript">document.getElementsByClassName("hightlight");</code><br>
+					<code class="language-javascript">document.querySelectorAll(".hightlight");</code><br /><br />
+
+					<code class="language-javascript">&lt;p&gt;coucou 1&lt;/p&gt;</code><br />
+					<code class="language-javascript">&lt;p&gt;coucou 2&lt;/p&gt;</code><br />
+					<code class="language-javascript">&lt;p&gt;coucou 3&lt;/p&gt;</code><br /><br />
+
+					<code
+						class="language-javascript">Array.from(paras).forEach((para)=>console.log(para.textContent));</code>
+
+
+
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Node et element => enfant du noeud - parent du noeud - fères avant et après du noeud -
+			parent le plus proche - element parent - nb d'element enfant - premier et dernier element enfant - selection
+			d'un element enfant - retirer un element enfant</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">elem.childNodes[?]  //enfants du noeud</code><br>
+					<code class="language-javascript">elem.parentNode.parentNode  // pas de []</code><br>
+					<code class="language-javascript">elem.nextSibling.nextSibling  // ou previousSibling;</code> //
+					Utiliser .map genre Array.from(elements).map((element){})<br><br>
+					<code
+						class="language-javascript">let caddie_ancestor = caddie.closest('.article_container') // le plus proche parent du nom du selecteur, permet d'éviter de faire element.parentElement.parentElement...</code><br />
+					<code class="language-javascript">elem.parentElement</code><br>
+					<code class="language-javascript">elem.childElementCount  // retourn nb elemts enfants</code><br>
+					<code class="language-javascript">elem.firstElementChild  elem.lastElementChild</code><br>
+					<code class="language-javascript">elem.children[0] ,   elem.children[1]</code><br>
+
+				</p>
+			</div>
+		</div>
+		<!--  ...  -->
+		<p class="cliquable">Change style</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">element.style.color="red";</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Ajouter noeud dom </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/noeudDom.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">add id </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">newPara.id="nouvelleId";</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+		<!--  ...  -->
+		<p class="cliquable">add class</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">newPara.className="nouvelle classe"</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<p class="cliquable"> Gerer les attribute</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					//LIRE LE NOM D'UN ATTRIBUT</br>
+					<code class="language-javascript">let attribut = element.getAttribute(nom_attribut)</code><br><br />
+					//CREER UN ATTRIBUT OU LE MODIFIER S'IL EXISTE DEJA<br />
+					<code class="language-javascript">setAttribut("alt","coucou")</code>// ("class","value")<br>
+					<code
+						class="language-javascript">document.querySelector('h1').setAttribute('style', 'text-transform: lowercase');</code></br></br />
+					//SUPPRIMER UN ATTRIBUT</br>
+					<code class="language-javascript">removeAttribute()</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">modification classes</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">element.classList.add("_");</code><br>
+					<code class="language-javascript">element.remove("_")</code><br>
+					<code class="language-javascript">element.contains("_")</code><br>
+					Il n'y a pas de méthode pour modifier ou remplacer, donc on supprime et on crééer<br />
+					<code class="language-javascript">element.classList.remove("nomDeLaClasse");</code><br />
+					<code class="language-javascript">element.classList.add("nouveauNomDeClasse")</code>
+					ex: créer puis supprimer une class:<br />
+					<code class="language-javascript">document.querySelector("#h1").classList.add("monId");</code>
+					<code class="language-javascript">document.querySelector("#h1").classList.remove("monId");</code>
+				</p>
+			</div>
+		</div>
+		<!--  ...  -->
+		<p class="cliquable">Afficher value Node(pas appendChild)</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">textNode.nodeValue</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Afficher le texte </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">newPara.textContent</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Afficher le html </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">newPara.innerHTML</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Mettre du text/html dans une balise </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">document.querySelector("#div1").innerHTML="coucou"</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+	</div>
+
+
+
+	<div id="instruction" class="titres">
+		<h2>Instructions :</h2>
+		<!--  ...  -->
+		<p class="cliquable">try{}catch(err){console.log(err)} </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript">affiche l'erreur s'il y a </code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">break </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code
+						class="language-javascript">arrête => for(let i=0;i<5;i++){if(i===3){break;};console.log(i)}  // 0 1 2 </code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">continue </p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>passe à la prochaine instruction<br />
+					<code
+						class="language-javascript">for(let i=0;i<5;i++){if(i===3){continue;};console.log(i)}  // 0 1 2 4</code><br>
+				</p>
+			</div>
+		</div>
+		<!--   ...   -->
+		<p> if(){}else if(){}else{}</p>
+		<p> for(var i=0;i<nb.length;i++){}< /p>
+				<p>while(){}</p>
+				<p>do/while</p>
+				<p>do{}</p>
+				<!--  ...  -->
+				<p class="cliquable">switch </p>
+				<div class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p>
+							<code
+								class="language-javascript">plusieurs case sont possible (case 1: case2: //instruction //break;)</code><br>
+						</p>
+					</div>
+				</div>
+				<!--   ...   -->
+				<!--  ...  -->
+				<p class="cliquable">for/in </p>
+				<div class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p>
+							<code class="language-javascript">loops through the properties of an object</code><br>
+						</p>
+					</div>
+				</div>
+				<!--   ...   -->
+				<!--  ...  -->
+				<p class="cliquable">for/of</p>
+				<div class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p>
+							<code class="language-javascript"> loops through the values of an iterable object</code><br>
+						</p>
+					</div>
+				</div>
+				<!--   ...   -->
+
+				<p>operateur typeof()</p>
+				<p class="cliquable">opérateur conditionnel</p>
+				<div class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p>
+							<code class="language-javascript">var isActive = true;</code><br>
+							<code class="language-javascript">var className = isActive ? 'red' : 'green';</code><br>
+							<code class="language-javascript">var element = document.querySelector(".root");</code><br>
+							<code class="language-javascript">element.classList.add(className);</code><br>
+
+						</p>
+					</div>
+				</div>
+				<!--  ...  -->
+				<p class="cliquable">opérateur conditionnel</p>
+				<div class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p>
+							<code
+								class="language-javascript"> (ternaire react)  // div class={isToggle ? "red" : "green"}</code><br>
+						</p>
+					</div>
+				</div>
+				<!--   ...   -->
+
+	</div>
+	<div id="event" class="titres">
+		<h2>Evenements : </h2>
+
+		<!-- ... -->
+		<p class="cliquable">Gestionnaire d'évenement avec fonction</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>gestionnaire d'évenement avec fonction</h2>
+				<img src="../images/js/eventF.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">catch event n'importe où</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>document.addEventListener</h2>
+				<img src="../images/js/document.addEventListener.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">Evenements multiples</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Evenements multiples</h2>
+				<img src="../images/js/events_multiples.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Sans gestionnaire d'evenement</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Sans gestionnaire d'evenements</h2>
+				<img src="../images/js/noGestionnaire.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">callBack</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>callBack</h2>
+				<img src="../images/js/callback_1.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Ascenseur</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Ascenseur</h2>
+				<img src="../images/js/windowScroll.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Propagation d'évenement</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Propagation d'évenement</h2>
+				<img src="../images/js/propagEvents.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p>click/load,mouseover/out/submit,keydown,keyup,scrool,resize,input,select,contextmenu,focus,blur,change</p>
+
+
+
+
+	</div>
+
+
+	<div id="scope" class="titres">
+		<h2>Scope : </h2>
+
+		<!-- ... -->
+		<p class="cliquable">hoisting</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>hoisting</h2>
+				<img src="../images/js/hoisting.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">functionnal scope</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>functionnal scope</h2>
+				<img src="../images/js/scope_f.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">block scope</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>block scope</h2>
+				<img src="../images/js/scope_b.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Variables: const let var</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>const let var</h2>
+				<p>
+					Avant 2015: only var<br />
+				<h3>Economie de ressources</h3>
+				const > let > var
+				<h3>global</h3>
+				var : oui<br />
+				let : non<br />
+				const : non <br /><br />
+
+				<code class="language-javascript">var testGlobal_Var = 17;</code><br />
+				<code class="language-javascript">let testGlobal_Vest = 18;</code><br /><br />
+
+				<code class="language-javascript">console.log(window.testGlobal_Var); // 17</code><br />
+				<code class="language-javascript">console.log(window.testGlobal_Let); // undefined</code>
+				<h3>Se limite à la portée d'une fonction</h3>
+				var : oui<br />
+				let : oui<br />
+				const : oui
+				<h3>Se limite à la porté d'un block ( instruction{...} ou if(){...})</h3>
+				var : non<br />
+				let : oui<br />
+				const : oui
+				<h3>Peut être réassigné(modifier valeur)</h3>
+				var : oui<br />
+				let : oui<br />
+				const : non (sauf pour objet)
+				<h3>Peut être redéclarer</h3>
+				var : oui<br />
+				let : non<br />
+				const : non<br /><br />
+
+
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+	</div>
+
+	<div class="titres">
+		<h2>VSC :</h2>
+		<p>lancer node nomFichier.js automatiquement : ctrl + f5</p>
+		<p>developper un terminal : ctrl + shift + ù</p>
+		<p>commentaire selection on/off : ctrl + k + c / ctrl + k + u</p>
+	</div>
+
+	<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+	<div id="syntaxe" class="titres">
+		<h2>Syntaxe : </h2>
+		<!-- ... -->
+		<p class="cliquable">null et undefined</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Héritage</h2>
+				<img src="../images/js/null_et_undefined_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">case sensitive</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>Si une variable ou fonction ou autre est déclaré avec une maj, alors une minuscule ne fonctionnera
+					pas</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Gestion des erreurs</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Gestion des erreurs</h2>
+				<img src="../images/js/gestion_erreurs.png" />
+				<code class="language-javascript"></code><br>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Destructuring</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Destructuring</h2>
+				<img src="../images/js/destructuring.png" />
+				<code class="language-javascript"></code><br>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Rest operator</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Rest operator</h2>
+				<img src="../images/js/restOperator.png" />
+				<code class="language-javascript"></code><br>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Spread operator</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Spread Operator</h2>
+				<img src="../images/js/spreadOperator.png" />
+				<code class="language-javascript"></code><br>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Spread operator et passage d'argument à une fonction</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Spread operator et passage d'argument à une fonction</h2>
+				<img src="../images/js/passageArgFunction.png" />
+				<code class="language-javascript"></code><br>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Spread operator av ajout entries</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2> Spread operator av ajout propriété</h2>
+				<code
+					class="language-javascript">const personne = {prenom : "thibault", age: 34, ville: "poitiers"};</code><br><br>
+				<code
+					class="language-javascript">const newPersonne = {...personne, niveau:"grand maître"};</code><br><br>
+				<code class="language-javascript">console.log(newPersonne);</code><br><br>
+			</div>
+		</div>
+		<!-- ... -->
+
+		<p> styliser un console.log : <code
+				class="language-javascript">console.log('%c coucou je suis là !' , 'color:red;font-size:50px;')</code>
+		</p>
+
+
+	</div>
+
+	<div id="pf" class="titres">
+		<h2>Programmation fonctionnelle</h2>
+		<p>Méthodes : map filter reduce,concat,some,every,find,findIndex,sort</p>
+		<p>fonctions pures : une fonction fait une chose et une seule, elle prend des para et retourne qqch, PAS DEFFETS
+			DE BORDS</p>
+		<p>immutabilité : copie des tab/objets pour eviter effets secondaires</p>
+		<!-- ... -->
+		<p class="cliquable">Currying</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Currying</h2>
+				<img src="../images/js/currying.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">copie_Slice</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>copie_Slice</h2>
+				<img src="../images/js/copie_slice.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<h4>Compréhension de la PF</h4>
+
+
+
+		<!-- ... -->
+		<p class="cliquable">paradigme fonctionnelle</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>paradigme fonctionnelle</h2>
+				<p>Moins répandue, mais tout de même considérée comme un paradigme majeur, la programmation
+					fonctionnelle s’inspire des fonctions mathématiques. <br />
+
+					Ce paradigme est beaucoup plus abstrait. L’entité centrale est la fonction, au sens mathématique du
+					terme, donc définie par une expression donnée telle que : <br />
+
+					f(x, y) = x + y</p>
+				<p>f(x)= 2x</p>
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Fonctions pures</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Def fonctions pures</h2>
+				<p>Une fonction fait une chose et une seule.</p>
+				<p>pas d'effets secondaires (ne modifient pas l'état global du programme).</p>
+				<ul>
+					<b>Effets secondaires:</b>
+					<li>console.log</li>
+					<li>accès à un bdd</li>
+					<li>appel réseau</li>
+					<li>appel à une fonction qui produit un side-effect</li>
+				</ul>
+				<h2>Ex: fonction pures et impures</h2>
+				<img src="../images/js/fPure_1.png" />
+				<h2>Ex: fonction pure pour manipuler DOM</h2>
+				<img src="../images/js/fPure_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Immutabilité</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Immutabilité</h2>
+				<p>On peut passer une var global en para, mais il faut en faire une copie avant de la manipuler</p>
+				<br />
+				<p>Les données sont immuables, ce qui signifie qu'elles ne peuvent pas être modifiées une fois qu'elles
+					sont créées. <br />
+					Au lieu de cela, toute modification crée une nouvelle instance des données.</p><br />
+				<p>Cela rend le comportement du code plus prévisible, car une fois qu'une donnée est créée, elle reste
+					inchangée.<br />
+					Cela facilite la compréhension, les tests, le parallelisme du code par les développeurs et réduit
+					les effets secondaires inattendus.</p><br />
+				<p>Référencialité transparente: Cela signifie que l'évaluation d'une expression peut être remplacée par
+					sa valeur sans changer le comportement du programme.<br />
+					Cela est possible grâce à l'absence d'effets secondaires dans les fonctions pures. </p><br />
+				<p>Traitemnet de données en temps que flux: La manipulation des données est souvent effectuée en
+					utilisant des opérations<br />
+					sur des flux de données plutôt qu'en modifiant directement des structures de données.<br />
+					Cela encourage un style de programmation plus déclaratif et fonctionnel</p><br />
+				<p>Paralellisme simplifié: L'absence de données partages et de changement d'état facilite la concurrence
+					<br />lorsque plusieurs threads tentent de modifier un objet en même temps
+				</p>
+
+
+				<h2>slice pour array</h2>
+				<img src="../images/js/immutable_1.png" />
+				<h2>Object.assign pour object</h2>
+				<img src="../images/js/immutable_2.png" />
+				<h2>spread operator pour les deux</h2>
+				<img src="../images/js/spreadOperator_immu.png" />
+				<h2>exemple Un tableau d'objets</h2>
+				<img src="../images/js/immutable_3.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">Composition</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Composition de fonctions (abstraction)</h2>
+				<p>Les fonctions peuvent être combinées pour créer des fonctionnalités plus complexes.<br />
+					Cela favorise la réutilisabilité du code et permet de construire des programmes en combinant des
+					petites unités fonctionnelles.</p><br />
+				<ul>
+					<b>First class functions:</b>
+					<li>Peuvent être affecté dans une variable</li>
+					<li>Peuvent être utilisés comme paramètre dans une fonction</li>
+					<li>Peuvent être utilisés comme résultat d'une fonction</li>
+				</ul>
+				<ul>
+					<b>Hight order functions:</b>
+					<li>Peuvent prendre une fonction comme paramètre</li>
+					<li>Peuvent retourner une fonction comme résultat</li>
+				</ul>
+				<ul><b>partial application</b></ul>
+				<ul><b>currying</b></ul>
+				<br />
+				<h2>Composition base</h2>
+				<img src="../images/js/compo_base.png" />
+				<h2>Fonction en paramètre</h2>
+				<img src="../images/js/fonction_para.png" />
+				<h2>fonction dans une var</h2>
+				<img src="../images/js/fonction_dans_var.png" />
+				<h2>function as result</h2>
+				<img src="../images/js/fonction_as_result.png" />
+				<h2>Partial application</h2>
+				<img src="../images/js/partial_app.png" />
+				<h2>Currying</h2>
+				<img src="../images/js/currying_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Récursivité:</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Principe:</h2>
+				<p>La récursion permet de résoudre de façon déclarative (par l'utilisation d'une fonction qui s'appelle
+					elle-même) <br />
+					des problèmes que l'itération permet de résoudre de façon impérative (modification d'état à chaque
+					boucle).<br />
+					Vu que la programmation fonctionnelle prône du déclarative, elle utilise la récursion à la place de
+					l'itération dans la résolution des problèmes.
+				</p>
+			</div>
+		</div>
+		<!-- ... -->
+
+		<h4>sort</h4>
+		<!-- ... -->
+		<p class="prototype">arr.sort(fonctionComparaison);</p>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">sort forme classique</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>sort forme classique</h2>
+				<img src="../images/js/sort1.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">sort forme raccourcie</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>sort forme raccourcie</h2>
+				<img src="../images/js/sort_classic.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">sort avec tableau</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>version optimisée</h2>
+				<img src="../images/js/sort2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">sort un array</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+
+					<code class="language-javascript">var stats = [</code><br />
+					<code
+						class="language-javascript">{ site: "microsoft.fr", browser: "FireFox", value: "20%" },</code><br />
+					<code
+						class="language-javascript">{ site: "google.fr", browser: "FireFox", value: "30%" },</code><br />
+					<code
+						class="language-javascript">{ site: "google.fr", browser: "Chrome", value: "50%" },</code><br />
+					<code
+						class="language-javascript">{ site: "mozilla.fr", browser: "FireFox", value: "60%" },</code><br />
+					<code
+						class="language-javascript"> { site: "mozilla.fr", browser: "Internet Explorer", value: "20%" },</code><br />
+					<code
+						class="language-javascript">{ site: "microsoft.fr", browser: "Chrome", value: "10%" },</code><br />
+					<code
+						class="language-javascript"> { site: "google.fr", browser: "Internet Explorer", value: "20%" },</code><br />
+					<code class="language-javascript">];</code><br />
+				</p>
+
+				<h2>version optimisée</h2>
+				<img src="../images/js/tri_array_opti.png" />
+				<h2>version non optimisée</h2>
+				<img src="../images/js/tri_array_non_opti.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<h4>filter</h4>
+		<p class="prototype">filter(predicat,index,arr)</p>
+
+		<!-- ... -->
+		<p class="cliquable">Filter dans un array ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+
+					const myData = [ <br />
+					&nbsp;&nbsp; {nom: "php", description : "blablabla php"},<br />
+					&nbsp;&nbsp; {nom: "js", description : "blablabal js" }<br />
+					];<br /><br />
+
+					let result = myData.filter((lg)=>lg.nom==="php");<br />
+					console.log(result);<br />
+					console.log(result[0].nom)<br />
+
+
+				</p>
+			</div>
+		</div>
+		<p class="cliquable">Filter dans un object ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					const myData = {<br />
+					&nbsp;&nbsp;data1 : {nom: "php", description : "blablabla php"},<br />
+					&nbsp;&nbsp;data2 : {nom: "js", description : "blablabal js" }<br />
+					};<br /><br />
+
+					let result2 = Object.values(myData).filter((item)=>item.nom==="php");<br />
+					console.log(result2); <br />
+					console.log(result[0].nom)<br />
+				</p>
+			</div>
+		</div>
+
+		<!-- ... -->
+		<p class="cliquable">filter_index</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>filter_index</h2>
+				<img src="../images/js/filter_index.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">filter_doublon</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>filter_doublon</h2>
+				<img src="../images/js/filter_enlever_doublon.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">filter_includes</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>filter_includes</h2>
+				<img src="../images/js/filter_includes.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">filter_typeof</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>filter_typeof</h2>
+				<img src="../images/js/filter_typeof.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<h4>map</h4>
+		<p class="prototype">Array.prototype.map(valeurCourante, index, array)</p>
+		<!-- ... -->
+		<p class="cliquable">map changer keys en values</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map changer keys en values</h2>
+				<img src="../images/js/map_keys_to_values.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<!-- ... -->
+		<p class="cliquable">map_double</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_double</h2>
+				<img src="../images/js/map_double.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_length</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_length</h2>
+				<img src="../images/js/map_length.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_ternaire</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_ternaire</h2>
+				<img src="../images/js/map_ternaire(simmultané).png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_filter</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_filter</h2>
+				<img src="../images/js/map_filter.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_concatenation</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_concatenation</h2>
+				<img src="../images/js/map_concatenation.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_formatage</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_formatage</h2>
+				<img src="../images/js/map_formatage.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_tronquer_mot</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_tronquer_mot</h2>
+				<img src="../images/js/map_tronquer_mot.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_fonction_externe</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_fonction_externe</h2>
+				<img src="../images/js/map_fonction_externe.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_transformer_en_pourcentage</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_transformer_en_pourcentage</h2>
+				<img src="../images/js/map_transformer_en_pourcentage.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">map_ajout_propriété_objet</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>map_ajout_propriété_objet</h2>
+				<img src="../images/js/map_ajout_propriété_objet.png" />
+				<h2>map_ajout_propriété_objet 2</h2>
+				<img src="../images/js/add_entries.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<h4>reduce</h4>
+		<p class="prototype">Array.prototype.reduce(accumulator, currentValue, index, array) + valeurInitiale</p>
+		<!-- ... -->
+		<p class="cliquable">Reduce base</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>reduce reconstruire un array à partir d'une dépendence array</h2>
+				<img src="../images/js/reduce_array_1.png" />
+				<h2>reduce reconstruire un array à partir d'une dépendence int</h2>
+				<img src="../images/js/reduce_array_2.png" />
+				<h2>reduce construire un object à partir d'une dépendence object et d'un tableau</h2>
+				<p>
+					<code class="language-javascript">const data = {</code><br />
+
+					<code class="language-javascript">coucou: [1, 2, 3, 4, 5],</code><br />
+					<code class="language-javascript">};</code><br />
+
+				</p>
+				<img src="../images/js/reduce_object_1.png" />
+				<h2>reduce exercice sur object</h2>
+				<img src="../images/js/reduce_object_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<p class="cliquable">reduce : Opérer une somme sur un tableau</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					reduce : Opérer une somme sur un tableau<br /><br />
+					<code
+						class="language-javascript">const sommeArray1 = array1.reduce((accumulator,currentValue)=>{</code><br>
+
+					<code class="language-javascript">return accumulator + currentValue;</code><br>
+					<code class="language-javascript">},0);</code><br><br />
+					<code class="language-javascript">console.log(sommeArray1);</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Reduce : Produit des elements d'une liste (1*2*3*4*5) ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Reduce : Produit des elements d'une liste (1*2*3*4*5) <br /><br />
+					<code class="language-javascript">const produitArray1 = array1.reduce((acc,currentV)=>{</code><br>
+
+					<code class="language-javascript">return acc*currentV;</code><br>
+					<code class="language-javascript">},1);</code><br>
+					<code class="language-javascript">console.log(produitArray1);</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Reduce : Chercher/remplacer avec plusieurs motifs ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+
+					Chercher/remplacer avec plusieurs motifs<br /><br />
+
+					<code class="language-javascript">var input = "I'm %USER% and I live in %COUNTRY%";</code><br><br />
+					<code class="language-javascript">var data = [</code><br>
+					<code class="language-javascript">{ token: "%USER%", value: "lionel" },</code><br>
+					<code class="language-javascript">{ token: "%COUNTRY%", value: "France" },</code><br>
+					<code class="language-javascript">];</code><br><br />
+
+					<code class="language-javascript">var output = data.reduce((acc,curV)=>{</code><br>
+					<code class="language-javascript">return acc.replace(curV.token, curV.value);</code><br>
+					<code class="language-javascript">},input);</code><br><br />
+
+					<code class="language-javascript">console.log(output);</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Reduce : Réaliser un groupBy ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+					Réaliser un groupBy<br /><br />
+					Mettre les mêmes sites dans un tableau<br /><br />
+
+					<code class="language-javascript">var stats = [</code><br>
+					<code class="language-javascript">{ site: "google.fr", browser: "Chrome", value: "50%" },</code><br>
+					<code
+						class="language-javascript">{ site: "google.fr", browser: "FireFox", value: "30%" },</code><br>
+					<code
+						class="language-javascript">{ site: "google.fr", browser: "Internet Explorer", value: "20%" },</code><br>
+					<code
+						class="language-javascript">{ site: "mozilla.fr", browser: "FireFox", value: "60%" },</code><br>
+					<code
+						class="language-javascript">{ site: "mozilla.fr", browser: "Internet Explorer", value: "20%" },</code><br>
+					<code
+						class="language-javascript">{ site: "microsoft.fr", browser: "Chrome", value: "10%" },</code><br>
+					<code
+						class="language-javascript">{ site: "microsoft.fr", browser: "FireFox", value: "20%" },</code><br>
+					<code class="language-javascript">];</code><br><br />
+
+
+
+					<code
+						class="language-javascript">var newObject = stats.reduce((accumulator, currentValue)=>{</code><br>
+					<code class="language-javascript">var site = currentValue.site;</code><br>
+
+					<code class="language-javascript">if(!accumulator[site]){</code><br>
+					<code class="language-javascript">accumulator[site]=[];</code><br>
+					<code class="language-javascript">}</code><br>
+					<code class="language-javascript">accumulator[site].push(currentValue);</code><br>
+					<code class="language-javascript">return accumulator;</code><br>
+					<code class="language-javascript">},{});</code><br><br />
+
+					<code class="language-javascript">console.log(newObject);</code><br>
+					<code class="language-javascript">var newArray1 = Object.values(newObject);</code><br>
+					<code class="language-javascript">console.log(newArray1);</code><br>
+
+
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Reduce : Manipuler la structure des données ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					<code class="language-javascript"></code><br>
+					Manipuler la structure des données<br /><br />
+					<code
+						class="language-javascript">//changer la structure de l'objet pour grouper ces résultats par type de navigateur plutôt que par site</code><br /><br />
+
+					<code class="language-javascript">var data = {</code><br>
+					<code class="language-javascript">"google.fr": [</code><br>
+					<code class="language-javascript">{ name: "Chrome", value: "50%" },</code><br>
+					<code class="language-javascript">{ name: "FireFox", value: "30%" },</code><br>
+					<code class="language-javascript">{ name: "Internet Explorer", value: "20%" },</code><br>
+					<code class="language-javascript">],</code><br>
+					<code class="language-javascript">"mozilla.fr": [</code><br>
+					<code class="language-javascript">{ name: "Chrome", value: "20%" },</code><br>
+					<code class="language-javascript">{ name: "FireFox", value: "60%" },</code><br>
+					<code class="language-javascript">{ name: "Internet Explorer", value: "20%" },</code><br>
+					<code class="language-javascript">],</code><br>
+					<code class="language-javascript">"microsoft.fr": [</code><br>
+					<code class="language-javascript">{ name: "Chrome", value: "10%" },</code><br>
+					<code class="language-javascript">{ name: "FireFox", value: "20%" },</code><br>
+					<code class="language-javascript">{ name: "Internet Explorer", value: "70%" },</code><br>
+					<code class="language-javascript">],</code><br>
+					<code class="language-javascript">};</code><br><br />
+
+
+
+				</p>
+				<img src="../images/js/reduce_modif_data.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<p class="cliquable">Reduce : Manipuler la structure des données 2</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Manipuler la structure des données 2</h2>
+				<p> <code class="language-javascript">const films = {</code><br />
+
+					&nbsp;<code class="language-javascript">"sf":[</code><br />
+					&nbsp;&nbsp;&nbsp;<code class="language-javascript">{name:"jurassik park", year: 1993},</code><br />
+					&nbsp;&nbsp;&nbsp;<code class="language-javascript">{name:"bbb", year: 1923},</code><br />
+					&nbsp;&nbsp;&nbsp;<code class="language-javascript">{name:"ccc", year: 1993},</code><br />
+					&nbsp;&nbsp;&nbsp;<code class="language-javascript">{name:"ddd", year: 2017},</code><br />
+					&nbsp;&nbsp; &nbsp;<code class="language-javascript">],</code><br />
+					&nbsp;<code class="language-javascript">	"aventure":[</code><br />
+					&nbsp;&nbsp;&nbsp;<code class="language-javascript">{name:"eee", year: 1958},</code><br />
+					&nbsp;&nbsp;&nbsp;<code class="language-javascript">{name:"fff", year: 1999},</code><br />
+					&nbsp; <code class="language-javascript">]</code><br />
+					<code class="language-javascript">}</code><br />
+				</p>
+				<img src="../images/js/reduce_manip_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+
+		<p class="cliquable">Reduce : Valeur maximale d'une liste ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Valeur maximale d'une liste :<br /><br />
+					<code class="language-javascript"></code><br>
+					var valMaxArray1 = array1.reduce((acc,currentV)=>{
+					<code class="language-javascript">return Math.max(acc,currentV);</code><br>
+					<code class="language-javascript">},-Infinity);</code><br>
+					<code class="language-javascript">console.log(valMaxArray1);</code><br>
+				</p>
+			</div>
+		</div>
+
+
+		<p class="cliquable">Reduce : Compter le nombre d'occurrences d'un élément(nombre de x qu'on trouve le même
+			nombre) ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Compter le nombre d'occurrences d'un élément(nombre de x qu'on trouve le même nombre) <br /><br />
+					<code class="language-javascript">	var elementToCount = 2;</code><br>
+
+					<code class="language-javascript">var occurenceArray1 = array1.reduce((acc,currentV)=>{</code><br>
+					<code class="language-javascript">if(currentV===elementToCount){</code><br>
+					<code class="language-javascript">acc++;</code><br>
+					<code class="language-javascript">}</code><br>
+					<code class="language-javascript">return acc;</code><br>
+					<code class="language-javascript">},0);</code><br>
+					<code class="language-javascript">console.log(occurenceArray1);</code><br>
+				</p>
+			</div>
+		</div>
+
+		<h4>Récursivité</h4>
+
+
+
+		<p class="cliquable">Récursivité : Calcul de la factorielle ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>
+					Récursivité : Calcul de la factorielle<br /></br />
+					<code
+						class="language-javascript">var nombre = prompt("Saisir un nombre pour en obtenir la factoriel");</code><br>
+
+
+					<code class="language-javascript">const factoNb = (nb) => {</code><br>
+					<code class="language-javascript">if(nb inférieur ou = à 1){</code><br>
+					<code class="language-javascript">return 1;</code><br>
+					<code class="language-javascript">}else{</code><br>
+					<code class="language-javascript">return nb*factoNb(nb-1);</code><br>
+					<code class="language-javascript">}</code><br>
+					<code class="language-javascript">};</code><br>
+					<code class="language-javascript">const result = factoNb(nombre);</code><br>
+					<code class="language-javascript">console.log(result);</code><br>
+				</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Récursivité : Récupérer données profondes d'un tableau ...</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Récursivité : Récupérer données profondes d'un tableau</h2>
+				<p>
+					//écrivez une fonction qui permet de récupérer tous les noms de chat dans un tableau.
+					const data = [
+					{
+					type: 'folder',
+					name: 'cats',
+					children: [
+					{
+					type: 'image',
+					name: 'Buffy',
+					},
+					{
+					type: 'image',
+					name: 'Gizmo',
+					},
+					{
+					type: 'folder',
+					name: 'small-cat',
+					children: [
+					{
+					type: 'image',
+					name: 'Fluffy',
+					},
+					{
+					type: 'image',
+					name: 'Harry',
+					},
+					{
+					type: 'folder',
+					name: 'black-cat',
+					children: [
+					{
+					type: 'image',
+					name: 'Daisy',
+					},
+					{
+					type: 'image',
+					name: 'Toby',
+					},
+					],
+					},
+					{
+					type: 'folder',
+					name: 'white-cat',
+					children: [
+					{
+					type: 'image',
+					name: 'Minnie',
+					},
+					{
+					type: 'image',
+					name: 'Lucy',
+					},
+					],
+					},
+					],
+					},
+					{
+					type: 'folder',
+					name: 'future-cat',
+					children: [],
+					},
+					],
+					},
+					];
+
+					console.log(data);
+				</p>
+				<img src="../images/js/recursivité_4.png" />
+			</div>
+		</div>
+
+		<h4>Exercices supplémentaire</h4>
+		<!--  ...  -->
+		<p class="cliquable">changer string en upperCase()</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/lower_to_upper.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Afficher un li pour chaque fruits</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/fruits.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Double iteration</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>find pour 1 ressource, filter pour plusieurs</h3>
+				<img src="../images/js/double_iteration.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+		<!--  ...  -->
+		<p class="cliquable">Concatenation DOM</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+
+				<img src="../images/js/concat_dom.png" />
+			</div>
+		</div>
+		<!--   ...   -->
+
+
+
+	</div>
+
+	</div>
+
+	<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+
+
+
+
+
+
+
+
+	<!-- ... -->
+	<!-- <p class="cliquable">iteration sur un object</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2>iteration sur un object</h2>
+					<img src="../images/js/iteration_object.png" />
+					<code class="language-javascript"></code><br>
+				</div>
+			</div> -->
+	<!-- ... -->
+
+
+
+
+
+</body>
+
+<script src="../js/index.js"></script>
+<script src="../js/prism.js"></script>
+
+</html>
+<!--    <code class="language-javascript"></code><br>  -->

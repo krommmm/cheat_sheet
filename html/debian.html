@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/prism.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Concert+One&family=Mate+SC&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<h1>Hébergement avec amazon light sail de AWS (serveur privé virtuel)</h1>
+
+		<div class="titres">
+			<h2>Ohv (serveur mutualisé)</h2>
+			<p class="cliquable">redémarer ovh (erreur 403 forbiden)</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>installer et ouvrir fileZilla</p>
+					<p>Hôte : server ftp et sftp (ftp.cluseter...)</p>
+					<p>nom user : ...</p>
+					<p>mdp : ...</p>
+					<p>port : 21 (ftp)</p>
+					<br/>
+					<p>onglet server > saisir une cmd personalisé > SITE CHMOD 705 /   (pour changer authorisation access de 700 à 705)</p>
+				</div>
+			</div>
+			
+		</div>
+		<div class="titres">
+			<h2>Hebergement de l'application:</h2>
+			<p class="cliquable">Sub</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>Créer instance linux node.js</p>
+					<p>console > connect using ssh</p>
+				</div>
+			</div>
+			<p class="cliquable">Maj</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>sudo apt update</p>
+					<p>sudo apt install git  ->  git --version</p>
+					<p>sudo apt install npm -> Y</p>
+					<p>cd /var -> sudo mkdir www -> cd www</p>
+					<p>sudo git clone nom_repo_github</p>
+					<p>cd cuisine</p>
+					<p>npm i </p>
+				</div>
+			</div>
+			<p class="cliquable">IP</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>console -> networking -> add ip statique</p>
+					<p>add rules port 2000 et 3000</p>
+				</br>
+				<p>var /www/cuisine -> sudo touch .env -> remplir .env</p>
+				<p>.env -> front</p>
+				<p>varGlobal.js -> back -> configurer ip ou dns</p>
+				<p>server.js -> back</p>
+				</div>
+			</div>
+			<p class="cliquable">Installer apache</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>sudo apt-get update</p>
+					<p>sudo apt-get install apache2</p>
+					<p>garder un seul fichier .conf pour apache</p>
+					<br/>
+					<p>sudo a2enmod proxy</p>
+					<p>sudo a2enmod proxy_http</p>
+				</div>
+			</div>
+			<p class="cliquable">FireWall</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>soit le désactiver -> sudo ufw disable</p>
+					<p>soit [best] ajouter rêgle -> sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT</p>
+					<p>sudo iptables-save</p>
+				</div>
+			</div>
+			<p class="cliquable">Libérer port 80 [s'il est déjà prit]</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>sudo apt install lsof</p>
+					<p>sudo killall httpd</p>
+					<p>sudo lsof -i :80</p>
+					<p>sudo systemctl start apache2</p>
+				</div>
+			</div>
+			<p class="cliquable">Virtual host</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						&lt;VirtualHost *:80&gt;<br/>
+						&nbsp;&nbsp;ServerName 15.188.190.180 (l'ip statique)<br/> 
+						&nbsp;&nbsp;ServerAdmin webmaster@localhost<br/>
+						&nbsp;&nbsp;DocumentRoot /var/www/cuisine/public<br/><br/>
+						 
+						&nbsp;&nbsp; ErrorLog ${APACHE_LOG_DIR}/error.log<br/>
+						&nbsp;&nbsp; CustomLog ${APACHE_LOG_DIR}/access.log combined<br/><br/>
+						 
+						&nbsp;&nbsp;ProxyPass / http://15.188.190.180:3000/   (si 3000 est le front)<br/>
+						&nbsp;&nbsp;ProxyPassReverse / http://15.188.190.180:3000/<br/><br/>
+						 
+						&nbsp;&nbsp;Redirect permanent / http://15.188.190.180/  <br/>
+						 &lt;/VirtualHost&gt;<br/><br/>
+						 
+						 #(URL : 15.188.190.180 ) <br/>
+					</p>
+				</div>
+			</div>
+			<p class="cliquable">apache maj</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>sudo systemctl restart apache2</p>
+					<p>Voir status : sudo systemctl status apache2</p>
+				</div>
+			</div>
+			<p class="cliquable">Run app</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>cd /var/www/cuisine</p>
+					<p>sudo npm run build</p>
+					<p>sudo npm run start</p>
+					<p>sudo node server</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="titres">
+			<h2>DNS ( Nom de domaine):</h2>
+			<p class="cliquable">DNS</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>Acheter dns</p>
+					<p>console -> domains -> assign domain</p>
+					<p>Changer varGlobal.js [ l'ip pour les services ]</p>
+				</div>
+			</div>
+			<p class="cliquable">VirtualHost</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						
+&lt;VirtualHost *:80&gt;<br/>
+	&nbsp;&nbsp;ServerName cuisinefamille.net<br/>
+	&nbsp;&nbsp;ServerAdmin webmaster@localhost<br/>
+	&nbsp;&nbsp;DocumentRoot /var/www/cuisine/public<br/><br/>
+ 
+	&nbsp;&nbsp;ErrorLog ${APACHE_LOG_DIR}/error.log<br/>
+	&nbsp;&nbsp; CustomLog ${APACHE_LOG_DIR}/access.log combined<br/><br/>
+ 
+	&nbsp;&nbsp;ProxyPass / http://15.188.190.180:3000/   (si 3000 est le front)<br/>
+	&nbsp;&nbsp;ProxyPassReverse / http://15.188.190.180:3000/<br/><br/>
+ 
+	&nbsp;&nbsp;Redirect permanent / http://cuisinefamille.net  <br/>
+ &lt;/VirtualHost&gt;<br/><br/>
+ 
+ (url : cuisinefamille.net + nettoyer le cache navigateur s'il est habitué à l'https du dns) <br/>
+					</p>
+				</div>
+			</div>
+			<p class="cliquable">Relancer</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p> sudo systemctl restart apache2</p>
+					<p>build, start, node server</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="titres">
+			<h2>Certificat SSL:</h2>
+			
+			<p class="cliquable">Methode certbot + certificat SSL</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>Eteindre apache 80 -> sudo systemctl stop apache2</p>
+				<p>sudo apt-get update</p>
+				<p>sudo apt-get install certbot</p>
+				<p>sudo certbot certonly --standalone -d cuisinefamille.net</p>
+				<p> Vérifier : sudo certbot certificates</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Module SSL</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>sudo a2enmod ssl</p>
+					<p>sudo apt-get install apache2 openssl</p>
+					<p>sudo systemctl restart apache2</p>
+				</div>
+			</div>
+			<p class="cliquable">Config</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>varGlobal -> https://...</p>
+				</div>
+			</div>
+
+			<p class="cliquable">Server change</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						const https = require('https');<br/>
+const fs = require('fs');<br/>
+const app = require('./app');<br/><br/>
+
+const options = {<br/>
+  key: fs.readFileSync('/etc/letsencrypt/live/cuisinefamille.net/privkey.pem'),<br/>
+  cert: fs.readFileSync('/etc/letsencrypt/live/cuisinefamille.net/cert.pem')<br/>
+};<br/><br/>
+
+
+
+const server = https.createServer(options, app); <br/>
+server.listen(2000, () => {  <br/>
+ console.log('Server listening on port 2000'); <br/>
+  });<br/><br/>
+   
+					</p>
+				</div>
+			</div>
+
+			<p class="cliquable">VirtualHost</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						&lt;VirtualHost *:80&gt;<br/>
+						&nbsp;&nbsp;ServerName cuisinefamille.net<br/>
+						&nbsp;&nbsp;ServerAdmin thibault.boutaud@gmx.fr<br/>
+						&nbsp;&nbsp;DocumentRoot /var/www/html<br/>
+						&nbsp;&nbsp;Redirect permanent / https://cuisinefamille.net/<br/>  (https)
+						&nbsp;&nbsp;ErrorLog ${APACHE_LOG_DIR}/error.log<br/>
+						&nbsp;&nbsp;CustomLog ${APACHE_LOG_DIR}/access.log combined<br/>
+							&lt;/VirtualHost&gt;<br/><br/>
+						 
+							&lt;VirtualHost *:443&gt;<br/>
+							&nbsp;&nbsp;ServerName cuisinefamille.net<br/>
+							&nbsp;&nbsp;DocumentRoot /var/www/cuisine<br/>
+							&nbsp;&nbsp;SSLEngine on<br/>
+							&nbsp;&nbsp;SSLCertificateFile /etc/letsencrypt/live/cuisinefamille.net/cert.pem<br/>
+							&nbsp;&nbsp;SSLCertificateKeyFile /etc/letsencrypt/live/cuisinefamille.net/privkey.pem<br/>
+							&nbsp;&nbsp;SSLCertificateChainFile /etc/letsencrypt/live/cuisinefamille.net/fullchain.pem<br/>
+							&nbsp;&nbsp;ProxyPreserveHost On<br/>
+							&nbsp;&nbsp;ProxyPass / http://15.188.190.180:3000/ (ip statique + port front)<br/>
+							&nbsp;&nbsp;ProxyPassReverse / http://15.188.190.180:3000/<br/>
+							&nbsp;&nbsp;ErrorLog ${APACHE_LOG_DIR}/error.log<br/>
+							&nbsp;&nbsp;CustomLog ${APACHE_LOG_DIR}/access.log combined<br/>
+							&lt;/VirtualHost&gt;<br/>
+					</p>
+				</div>
+			</div>
+
+			<p class="cliquable">Relancer</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>sudo systemctl restart apache2</p>
+					<p>build run node server</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="titres">
+			<h2>FTP:</h2>
+
+			<p class="cliquable"></p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p><code class="language-javascript"></code><br /></p>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="titres">
+			<h2>Outils:</h2>
+
+			<p class="cliquable">Screen</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>cd /var/www/cuisine</p>
+				<p>screen -S cb -> node server</p>
+				<p>screen -S cf -> npm run start</p>
+				<br/>
+				<p>kill screen : screen -r -> screen -r id_Screen  -> exit</p>
+			</div>
+		</div>
+
+		<p class="cliquable">nano</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+			<p>sudo nano nom_fichier</p>
+			<p>ctrl + k supprimer une ligne</p>
+			</div>
+		</div>
+
+		<p class="cliquable">Vim</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>sudo apt update</p>
+				<p>sudo apt install vim</p>
+				<p>Supprimer une ligne : ctrl + c  -> dd</p>
+				<p>Coller ligne supprimée : p</p>
+				<p>Enregistrer : Echap -> :w + Entrée</p>
+				<p>Enregistrer + quitter ->  : wq</p>
+				<p>Taper texte : i</p>
+			</div>
+		</div>
+		</div>
+
+
+		<div class="titres">
+			<h2>Fonctions:</h2>
+			<p class="cliquable">Suppression</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					sudo rm -r nom_fichier/dossier
+				</div>
+			</div>
+			<p class="cliquable">Connaitre utilisateur</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>whoami</p>
+				</div>
+			</div>
+			<p class="cliquable">Déplacer dossier/fichier</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>sudo cp -r /home/bitnami/cuisine /var/www/cuisine/build</p>
+				</div>
+			</div>
+			<p class="cliquable">Nettoyer ecran</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>clear</p>
+				</div>
+			</div>
+		</div>
+		<script src="../js/index.js"></script>
+		<script src="../js/prism.js"></script>
+	</body>
+</html>
+
+
+<!-- 
+	<p class="cliquable"> sub</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p><code class="language-javascript"></code><br /></p>
+				</div>
+			</div> 
+		-->

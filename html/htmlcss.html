@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/prism.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Concert+One&family=Mate+SC&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="titres">
+			<h2>Animation :</h2>
+			<p class="cliquable">transition..</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						transition-property : width, height, color;<br />
+						transition-duration: 0.5s;<br />
+						transition-timing-function: ease-in-out;<br />
+						transition-delay:0.2s;<br />
+						transition: width 0.5s ease-in-out 0.2s;<br />
+					</p>
+				</div>
+			</div>
+			<p class="cliquable">Ex transition..</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						.btn{<br />
+						transition-duration:0.2s;<br />
+						}<br />
+						<br />
+						.btn:active{<br />
+						transform:scale(0.8);<br />
+						}
+					</p>
+				</div>
+			</div>
+			<p class="cliquable">animation..</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						@keyframes myAnimation{<br />
+						0%{opacity:0;transform:scale(0)}<br />
+						100%{opacity:1;transform:scale(1)}<br />
+						}<br /><br />
+
+						animation-name: myAnimation;<br />
+						animation-duration:2s;<br />
+						animation-timing-function:ease-in-out;<br />
+						animation-delay:0.5s;<br />
+						animation-iteration-count:3;<br />
+						animation-fill-mode:forwards;<br />
+						animation:myAnimation 2s ease-in-out 0.5s infinite
+						alternate forwards;<br /><br />
+					</p>
+				</div>
+			</div>
+			<p class="cliquable">Ex animation..</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						.elementQuiDoitBouger{<br />
+						animation-name: float-left;<br />
+						animation-duration: 0.8s;<br />
+						}<br /><br /><br />
+
+						@keyframes float-left {<br />
+						0% {<br />
+						transform: translateX(50%);<br />
+						opacity: 0%;<br />
+						}<br />
+						100% {<br />
+						transform: translateX(0%);<br />
+						opacity: 100%;<br />
+						}<br />
+						}<br />
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="titres">
+			<h2>others :</h2>
+			<p class="cliquable">whatever..</p>
+			<div class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+				</div>
+			</div>
+		</div>
+		<script src="../js/index.js"></script>
+		<script src="../js/prism.js"></script>
+	</body>
+</html>

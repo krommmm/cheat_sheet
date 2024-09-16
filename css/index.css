@@ -1,0 +1,182 @@
+/* sommaire  */
+
+@font-face {
+	font-family: mandalore;
+	src: url('./Roboto-Black.ttf');
+}
+
+.prototype {
+	font-family: mandalore;
+	font-size: 14px;
+}
+
+.titres .sommaire {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.titres .sommaire .index {
+	border: 1px solid black;
+	padding: 10px;
+	width: 300px;
+	text-align: center;
+	margin: 10px;
+	cursor: pointer;
+	background: rgb(0, 128, 86);
+	background: -moz-linear-gradient(17deg,
+			rgba(0, 128, 86, 1) 0%,
+			rgba(7, 78, 63, 1) 100%);
+	background: -webkit-linear-gradient(17deg,
+			rgba(0, 128, 86, 1) 0%,
+			rgba(7, 78, 63, 1) 100%);
+	background: linear-gradient(17deg,
+			rgba(0, 128, 86, 1) 0%,
+			rgba(7, 78, 63, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#008056", endColorstr="#074e3f", GradientType=1);
+	color: black;
+	font-weight: 600;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Ascensseur  */
+.ascensseur {
+	opacity: 0;
+	background-image: url('../images/ascenseur/ascenseur.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	position: fixed;
+	right: 15px;
+	transition-duration: 0.5s;
+}
+
+.accueil img {
+	width: 200px;
+	height: 200px;
+	object-fit: fill;
+}
+
+.accueil .julien {
+	object-fit: fill;
+}
+
+.modal {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+	backdrop-filter: blur(10px);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	border-radius: 5px;
+	box-shadow: 0 10px 13px -7px #000, 5px 5px 15px 5px transparent;
+}
+
+.modal-content img {
+	max-width: 100%;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.cliquable {
+	cursor: pointer;
+}
+
+.gras {
+	font-weight: 600;
+	color: green;
+}
+
+.cliquable:hover {
+	color: red !important;
+}
+
+body {
+	width: 80%;
+	margin: auto;
+	color: #555;
+	background-color: rgb(241, 240, 240);
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		'Liberation Mono', 'Courier New', monospace;
+}
+
+.titres {
+	background-color: white;
+	border-radius: 3px;
+	padding: 10px;
+	margin: 20px;
+}
+
+h2 {
+	font-weight: 700;
+	color: red;
+}
+
+h3 {
+	color: black;
+	font-weight: 600;
+}
+
+h4 {
+	color: black;
+	font-weight: 600;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+h1 {
+	color: black;
+	text-align: center;
+	font-family: 'Concert One', cursive;
+}
+
+p {
+	margin: 0px;
+}
+
+
+/* // INTERCHANGABILITE NAME DESCRIPTION */
+.btn{
+	padding: 5px;
+	background-color: green;
+	display:inline-block;
+	color: white;
+	font-weight: 600;
+	cursor:pointer;
+	margin-bottom: 15px;
+}
+.name{
+	display:none;
+}
