@@ -489,18 +489,51 @@
 		</div>
 		<!--   ...   -->
 
-		<!--  ...  -->
-		<p class="cliquable">A partir d'un tableau de nombres, selectionner les 2 nombres les plus proches
-			(optimisation)</p>
+		<!-- ... -->
+		<p class="cliquable">Retourner une valeur (0 par defaut) et ensuite retourner cette valeur incrémenté</p>
 		<div class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<h3>A partir d'un tableau de nombres, selectionner les 2 nombres les plus proches (optimisation)</h3>
-				<img src="../images/js/tri_array_cheveaux.png" />
+				<img src="../images/js/closures_3.png" />
 			</div>
 		</div>
-		<!--   ...   -->
-
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Créer un prototype pour un array ou un objet qui console qqch</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/prototype_console.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Créer un prototype pour un array qui rend au carré chaque cellules</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/prototype_square.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Créer jquery en js</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/jquery_en_js.PNG" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Créer jquery en js version class</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<img src="../images/js/jquery_js_class.PNG" />
+			</div>
+		</div>
+		<!-- ... -->
 
 
 
@@ -2347,8 +2380,28 @@ fetch(adresse)
 		<div class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<h2>Héritage</h2>
+
 				<img src="../images/js/f_fleché.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Composition avec fonction</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+
+				<img src="../images/js/compo_1.PNG" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">Composition avec fonction-variable</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+
+				<img src="../images/js/compo_2.PNG" />
 			</div>
 		</div>
 		<!-- ... -->
@@ -2770,85 +2823,38 @@ fetch(adresse)
 		</div>
 		<!-- ... -->
 		<h4>Les closures</h4>
+
 		<!-- ... -->
-		<p class="cliquable">Def</p>
+		<p class="cliquable">closures appel</p>
 		<div class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<h2>Héritage</h2>
-				<p>une fermeture est un enregistrement stockant une fonction ainsi qu'un environnement</p>
-				<p>Une fonction a toujours accès à la scope d'au dessus (de ses parents)</p>
-				<br />
-				<img src="../images/js/closure_intro.png" />
+
+				<img src="../images/js/closures_1.png" />
 			</div>
 		</div>
 		<!-- ... -->
 		<!-- ... -->
-		<p class="cliquable">Les closures principe</p>
+		<p class="cliquable">closures Addition</p>
 		<div class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<p>
-					<code class="language-javascript">// Les closures</code><br />
-					<code class="language-javascript">//fonction dans une fonction</code><br />
-					<code
-						class="language-javascript">//garde en mémoire les var locales de la f°(à l'intérieur d'une fonction) même si la fonction est terminée et ses variables locales sont détruites.</code><br />
-					<code
-						class="language-javascript">//la closure sauvegarde les variables locales ET peut le faire plusieurs fois !!!</code><br /><br />
-					<code class="language-javascript">function bonjour(prenom){</code><br />
-					<code class="language-javascript">let resultat = "Bonjour " + prenom; // var local;</code><br />
-					<code class="language-javascript">let maClosure = () => console.log(resultat);</code><br />
-					<code class="language-javascript">	return maClosure;</code><br />
-					<code class="language-javascript">	};</code><br />
-					<code
-						class="language-javascript">//Donc enregistre la var prénom dans la closure(f° ds f°)</code><br /><br />
-					<code class="language-javascript">	let maFonction = bonjour("Jean");</code><br />
-					<code class="language-javascript">maFonction();</code><br />
-					<code class="language-javascript">// Sans closures, il faut faire ça : </code><br />
-					<code class="language-javascript">function bonjour_bis(prenom){</code><br />
 
-					<code class="language-javascript">let resultat = "Bonjour " + prenom;</code><br />
-					<code class="language-javascript">console.log(resultat);</code><br />
-					<code class="language-javascript">};</code><br />
-					<code class="language-javascript">bonjour_bis("Nicolas");</code><br />
+				<img src="../images/js/closures_2.png" />
+			</div>
+		</div>
+		<!-- ... -->
+		<!-- ... -->
+		<p class="cliquable">closures Incrémentation</p>
+		<div class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
 
-				</p>
+				<img src="../images/js/closures_3.png" />
 			</div>
 		</div>
 		<!-- ... -->
 
-		<!-- ... -->
-		<p class="cliquable">closures encapsulation</p>
-		<div class="modal">
-			<div class="modal-content">
-				<span class="close">&times;</span>
-				<h2>closures encapsulation</h2>
-				<img src="../images/js/closures.png" />
-			</div>
-		</div>
-		<!-- ... -->
-
-		<!-- ... -->
-		<p class="cliquable">closures callback</p>
-		<div class="modal">
-			<div class="modal-content">
-				<span class="close">&times;</span>
-				<h2>closures callback</h2>
-				<img src="../images/js/closureCallback.png" />
-			</div>
-		</div>
-		<!-- ... -->
-
-		<!-- ... -->
-		<p class="cliquable">closures state</p>
-		<div class="modal">
-			<div class="modal-content">
-				<span class="close">&times;</span>
-				<h2>closures state</h2>
-				<img src="../images/js/closure_state.png" />
-			</div>
-		</div>
-		<!-- ... -->
 		<h4>High order function</h4>
 		<!-- ... -->
 		<p class="cliquable">def</p>
